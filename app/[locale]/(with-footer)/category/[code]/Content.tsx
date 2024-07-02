@@ -2,7 +2,7 @@
 import { WebNavigation } from '@/db/supabase/types';
 import { useTranslations } from 'next-intl';
 
-import { WebNavigationListRow } from '@/lib/data'; // 确保导入正确路径
+import { WebNavigationListRow } from '@/lib/data';
 import Empty from '@/components/Empty';
 import ExploreBreadcrumb from '@/components/explore/ExploreBreadcrumb';
 import BasePagination from '@/components/page/BasePagination';

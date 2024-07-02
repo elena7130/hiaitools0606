@@ -54,8 +54,6 @@ export default async function Page() {
       }))
     : null;
 
-  // console.log(mappedNavigationList); // 验证映射后的数据结构
-
   return (
     <div className='relative w-full'>
       <div className='relative mx-auto w-full max-w-pc flex-1 px-3 lg:px-0'>

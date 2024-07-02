@@ -44,7 +44,7 @@ export default async function Page() {
   // 确保 navigationList 数据不为 null 并且映射到 WebNavigationListRow 类型
   const mappedNavigationList: WebNavigationListRow[] | null = navigationList
     ? navigationList.map((item) => ({
-        id: String(item.id), // 确保 id 是字符串
+        id: String(item.id),
         title: item.title,
         url: item.url,
         imageUrl: item.image_url || null, // 将 image_url 映射到 imageUrl

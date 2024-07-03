@@ -47,7 +47,7 @@ export default async function Page() {
         id: String(item.id),
         title: item.title,
         url: item.url,
-        imageUrl: item.image_url || null, // 将 image_url 映射到 imageUrl
+        imageUrl: item.image_url || null,
         thumbnailUrl: item.thumbnail_url || null, // 将 thumbnail_url 映射到 thumbnailUrl
         content: item.content,
         name: item.name,

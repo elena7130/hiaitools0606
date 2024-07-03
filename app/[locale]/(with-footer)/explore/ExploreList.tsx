@@ -29,7 +29,7 @@ export default async function ExploreList({ pageNum }: { pageNum?: string }) {
   // 将 navigationList 映射为 WebNavigationListRow 类型
   const mappedNavigationList: WebNavigationListRow[] | null = navigationList
     ? navigationList.map((item) => ({
-        id: String(item.id), // 确保 id 是字符串
+        id: String(item.id),
         title: item.title,
         url: item.url,
         imageUrl: item.image_url || null, // 将 image_url 映射到 imageUrl

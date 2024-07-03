@@ -42,7 +42,7 @@ export default async function Page({ params }: { params: { search?: string } }) 
   // 将 dataList 映射为 WebNavigationListRow 类型
   const mappedDataList: WebNavigationListRow[] | null = dataList
     ? dataList.map((item) => ({
-        id: String(item.id), // 确保 id 是字符串
+        id: String(item.id),
         title: item.title,
         url: item.url,
         imageUrl: item.image_url || null, // 将 image_url 映射到 imageUrl

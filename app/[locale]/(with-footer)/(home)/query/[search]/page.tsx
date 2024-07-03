@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: { search?: string } }) 
     .ilike('detail', `%${decodeURI(params?.search || '')}%`);
 
   const mappedDataList: WebNavigationListRow[] | null = dataList
-    ? dataList.map((item) => ({
+    ? dataList.map((item: any) => ({
         id: String(item.id),
         title: item.title,
         url: item.url,
@@ -56,7 +56,7 @@ export default async function Page({ params }: { params: { search?: string } }) 
       <div className='mb-10 mt-5'>
         {params?.search && (
           <TagList
-            data={categoryList!.map((item) => ({
+            data={categoryList!.map((item: any) => ({
               id: String(item.id),
               name: item.name,
               href: `/category/${item.name}`,

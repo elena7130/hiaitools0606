@@ -28,7 +28,7 @@ export default async function ExploreList({ pageNum }: { pageNum?: string }) {
 
   // 将 navigationList 映射为 WebNavigationListRow 类型
   const mappedNavigationList: WebNavigationListRow[] | null = navigationList
-    ? navigationList.map((item) => ({
+    ? navigationList.map((item: any) => ({
         id: String(item.id),
         title: item.title,
         url: item.url,
@@ -46,7 +46,7 @@ export default async function ExploreList({ pageNum }: { pageNum?: string }) {
       </div>
       <div className='mb-10 mt-5'>
         <TagList
-          data={categoryList!.map((item) => ({
+          data={categoryList!.map((item: any) => ({
             id: String(item.id),
             name: item.name,
             href: `/category/${item.name}`,

@@ -3,7 +3,7 @@ import { createClient } from '@/db/supabase/client';
 
 const supabase = createClient();
 
-export async function GET(req: NextRequest, { params }: { params: { name: string } }) {
+export default async function GET(req: NextRequest, { params }: { params: { name: string } }) {
   const { name } = params;
 
   if (!name) {

@@ -42,7 +42,7 @@ export default async function Page() {
   ]);
 
   const mappedNavigationList: WebNavigationListRow[] | null = navigationList
-    ? navigationList.map((item) => ({
+    ? navigationList.map((item: any) => ({
         id: String(item.id),
         title: item.title,
         url: item.url,
@@ -65,7 +65,7 @@ export default async function Page() {
         </div>
         <div className='mb-10 mt-5'>
           <TagList
-            data={categoryList!.map((item) => ({
+            data={categoryList!.map((item: any) => ({
               id: String(item.id),
               name: item.name,
               href: `/category/${item.name}`,

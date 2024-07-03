@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/destructuring-assignment */
 import Image from 'next/image';
 
 export type ImageProps = React.ComponentProps<typeof Image>;

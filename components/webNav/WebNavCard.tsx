@@ -21,10 +21,10 @@ export default function WebNavCard({ name, thumbnailUrl, title, url, content }: 
         />
       </Link>
       <div className='flex items-center justify-between'>
-        <a href={url} title={title} target='_blank' rel='noreferrer' className='hover:opacity-70'>
+        <a href={url} title={title} target='_blank' rel='noreferrer nofollow' className='hover:opacity-70'>
           <h3 className='line-clamp-1 flex-1 text-sm font-bold text-gray-900 lg:text-base'>{title}</h3>
         </a>
-        <a href={url} title={title} target='_blank' rel='noreferrer' className='hover:opacity-70'>
+        <a href={url} title={title} target='_blank' rel='noreferrer nofollow' className='hover:opacity-70'>
           <SquareArrowOutUpRight className='size-5 text-gray-900' />
           <span className='sr-only'>{title}</span>
         </a>

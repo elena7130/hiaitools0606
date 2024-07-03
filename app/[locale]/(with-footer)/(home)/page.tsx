@@ -41,7 +41,6 @@ export default async function Page() {
     supabase.from('web_navigation').select().order('collection_time', { ascending: false }).limit(12),
   ]);
 
-  // 确保 navigationList 数据不为 null 并且映射到 WebNavigationListRow 类型
   const mappedNavigationList: WebNavigationListRow[] | null = navigationList
     ? navigationList.map((item) => ({
         id: String(item.id),

@@ -43,14 +43,14 @@ export default async function Page() {
 
   const mappedNavigationList: WebNavigationListRow[] | null = navigationList
     ? navigationList.map((item: any) => ({
-        id: String(item.id),
-        title: item.title,
-        url: item.url,
-        imageUrl: item.image_url || null,
-        thumbnailUrl: item.thumbnail_url || null,
-        content: item.content,
-        name: item.name,
-      }))
+      id: String(item.id),
+      title: item.title,
+      url: item.url,
+      imageUrl: item.image_url || null,
+      thumbnailUrl: item.thumbnail_url || null,
+      content: item.content,
+      name: item.name,
+    }))
     : null;
 
   return (

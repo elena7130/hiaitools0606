@@ -29,14 +29,14 @@ export default async function ExploreList({ pageNum }: { pageNum?: string }) {
   // 将 navigationList 映射为 WebNavigationListRow 类型
   const mappedNavigationList: WebNavigationListRow[] | null = navigationList
     ? navigationList.map((item: any) => ({
-        id: String(item.id),
-        title: item.title,
-        url: item.url,
-        imageUrl: item.image_url || null,
-        thumbnailUrl: item.thumbnail_url || null,
-        content: item.content,
-        name: item.name,
-      }))
+      id: String(item.id),
+      title: item.title,
+      url: item.url,
+      imageUrl: item.image_url || null,
+      thumbnailUrl: item.thumbnail_url || null,
+      content: item.content,
+      name: item.name,
+    }))
     : null;
 
   return (

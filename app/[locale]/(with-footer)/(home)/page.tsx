@@ -6,7 +6,7 @@ import { CircleChevronRight } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
 import { RevalidateOneHour } from '@/lib/constants';
-import { WebNavigationListRow } from '@/lib/data'; // 确保导入正确路径
+import { WebNavigationListRow } from '@/lib/data';
 import SearchForm from '@/components/home/SearchForm';
 import WebNavCardList from '@/components/webNav/WebNavCardList';
 

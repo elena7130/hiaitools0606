@@ -39,7 +39,6 @@ export default async function Page({ params }: { params: { search?: string } }) 
     .select()
     .ilike('detail', `%${decodeURI(params?.search || '')}%`);
 
-  // 将 dataList 映射为 WebNavigationListRow 类型
   const mappedDataList: WebNavigationListRow[] | null = dataList
     ? dataList.map((item) => ({
         id: String(item.id),

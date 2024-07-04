@@ -43,14 +43,14 @@ export default async function Page() {
 
   const mappedNavigationList: WebNavigationListRow[] | null = navigationList
     ? navigationList.map((item: any) => ({
-      id: String(item.id),
-      title: item.title,
-      url: item.url,
-      imageUrl: item.image_url || null,
-      thumbnailUrl: item.thumbnail_url || null,
-      content: item.content,
-      name: item.name,
-    }))
+        id: String(item.id),
+        title: item.title,
+        url: item.url,
+        imageUrl: item.image_url || null,
+        thumbnailUrl: item.thumbnail_url || null,
+        content: item.content,
+        name: item.name,
+      }))
     : null;
 
   return (
@@ -73,7 +73,12 @@ export default async function Page() {
           />
         </div>
         <div className='flex flex-col gap-5'>
-          <h2 className='text-center text-[18px] lg:text-[32px]'>{t('ai-navigate')}</h2>
+          <div className='relative flex items-center'>
+            <h2 className='z-10 inline-block rounded-md border border-gray-300 bg-blue-100 px-4 py-2 text-center text-black'>
+              {t('just-landed')}
+            </h2>
+            <div className='absolute bottom-0 left-0 w-full border-t border-gray-300' />
+          </div>
           {mappedNavigationList ? <WebNavCardList dataList={mappedNavigationList} /> : <p>Loading...</p>}
           <Link
             href='/explore'

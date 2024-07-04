@@ -156,22 +156,22 @@
   },
   "Metadata": {
     "home": {
-      "title": "获取您的最佳AI工具 | Hiaitools箱",
-      "description": "Hiaitools箱是一款提供免费AI工具箱的工具。通过Hiaitools箱获取您喜爱的AI工具，Hiaitools箱旨在收集所有AI工具并为用户提供最佳服务。",
-      "keywords": "Hiaitools箱"
+      "title": "获取您的最佳AI工具 | Hiai工具箱",
+      "description": "Hiaitools箱是一款提供最好用的AI工具箱的工具。通过Hiaitools箱获取您喜爱的AI工具，Hiaitools箱旨在收集所有AI工具并为用户提供最佳服务。",
+      "keywords": "Hiai工具箱"
     },
     "ai": {
-      "titleSubfix": "Hiaitools箱"
+      "titleSubfix": "Hiai工具箱"
     },
     "explore": {
-      "title": "2024年最佳AI工具探索 | Hiaitools箱",
+      "title": "2024年最佳AI工具探索 | Hiai工具箱",
       "titlePrefix": "Hiaitools箱探索",
       "titleSuffix": "Hiaitools箱",
       "description": "Hiaitools箱是一款提供免费AI工具箱的工具。通过Hiaitools箱获取您喜爱的AI工具，Hiaitools箱旨在收集所有AI工具并为用户提供最佳服务。",
       "keywords": "Hiaitools箱"
     },
     "submit": {
-      "title": "提交您的AI工具并获取流量 | Hiaitools箱"
+      "title": "提交您的AI工具并获取流量 | Hiai工具箱"
     }
   }
 }

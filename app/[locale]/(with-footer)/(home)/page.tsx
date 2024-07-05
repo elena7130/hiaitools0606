@@ -1,18 +1,13 @@
 import { Metadata } from 'next';
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
 import { createClient } from '@/db/supabase/client';
-import { CircleChevronRight } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
 import { RevalidateOneHour } from '@/lib/constants';
-import { WebNavigationListRow } from '@/lib/data';
 import SearchForm from '@/components/home/SearchForm';
-import WebNavCardList from '@/components/webNav/WebNavCardList';
 
+import Featured from './Featured';
+import JustLanded from './JustLanded';
 import { TagList } from './Tag';
-
-const ScrollToTop = dynamic(() => import('@/components/page/ScrollToTop'), { ssr: false });
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({
@@ -36,22 +31,7 @@ export const revalidate = RevalidateOneHour;
 export default async function Page() {
   const supabase = createClient();
   const t = await getTranslations('Home');
-  const [{ data: categoryList }, { data: navigationList }] = await Promise.all([
-    supabase.from('navigation_category').select(),
-    supabase.from('web_navigation').select().order('collection_time', { ascending: false }).limit(12),
-  ]);
-
-  const mappedNavigationList: WebNavigationListRow[] | null = navigationList
-    ? navigationList.map((item: any) => ({
-        id: String(item.id),
-        title: item.title,
-        url: item.url,
-        imageUrl: item.image_url || null,
-        thumbnailUrl: item.thumbnail_url || null,
-        content: item.content,
-        name: item.name,
-      }))
-    : null;
+  const [{ data: categoryList }] = await Promise.all([supabase.from('navigation_category').select()]);
 
   return (
     <div className='relative w-full'>
@@ -72,23 +52,24 @@ export default async function Page() {
             }))}
           />
         </div>
-        <div className='flex flex-col gap-5'>
-          <div className='relative flex items-center'>
-            <h2 className='z-10 inline-block rounded-md border border-gray-300 bg-blue-100 px-4 py-2 text-center text-black'>
-              {t('just-landed')}
-            </h2>
-            <div className='absolute bottom-0 left-0 w-full border-t border-gray-300' />
-          </div>
-          {mappedNavigationList ? <WebNavCardList dataList={mappedNavigationList} /> : <p>Loading...</p>}
-          <Link
-            href='/explore'
-            className='mx-auto mb-5 flex w-fit items-center justify-center gap-5 rounded-[9px] border border-white p-[10px] text-sm leading-4 hover:opacity-70'
-          >
-            {t('exploreMore')}
-            <CircleChevronRight className='mt-[0.5] h-[20px] w-[20px]' />
-          </Link>
+        {/* JustLanded 和 Featured 链接并排放置，中间有间隙，下面加灰色线 */}
+        <div className='relative flex justify-start gap-4'>
+          <a href='#featured' className='z-20 inline-block bg-blue-100 px-4 py-2 text-center text-black'>
+            {t('featured')}
+          </a>
+          <a href='#justlanded' className='z-10 inline-block bg-pink-100 px-4 py-2 text-center text-black'>
+            {t('just-landed')}
+          </a>
+
+          <div className='absolute bottom-0 left-0 w-full border-t border-gray-300' />
         </div>
-        <ScrollToTop />
+        {/* JustLanded 和 Featured 组件区域 */}
+        <div id='featured' className='mt-5 flex flex-col gap-5'>
+          <Featured />
+        </div>
+        <div id='justlanded' className='mt-5 flex flex-col gap-5'>
+          <JustLanded />
+        </div>
       </div>
     </div>
   );

@@ -121,8 +121,12 @@
   "Home": {
     "title": "Hi AI tools - Discover the best AI Tools in 2024",
     "subTitle": "Get your favorite AI tools in Hi AI.The latest AI tools website has all tools manually tested to help you find the best ones. 🚀",
-    "just-landed": "AI Tools List",
-    "exploreMore": "Get More AI Tools"
+    "just-landed": "Just Landed",
+    "exploreMore": "Get More AI Tools",
+    "featured":"Featured AI Tools",
+    "search": "Search",
+    "result": "Search Results"
+
   },
   "Submit": {
     "title": "Submit your AI Tool",

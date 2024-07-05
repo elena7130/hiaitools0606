@@ -15,14 +15,18 @@ import Loading from './loading';
 
 const ScrollToTop = dynamic(() => import('@/components/page/ScrollToTop'), { ssr: false });
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params: { locale, search },
+}: {
+  params: { locale: string; search?: string };
+}): Promise<Metadata> {
   const t = await getTranslations({
     locale,
     namespace: 'Metadata.home',
   });
 
   return {
-    title: t('title'),
+    title: search ? `Tools For: ${decodeURI(search)}` : t('title'),
     description: t('description'),
     keywords: t('keywords'),
   };
@@ -41,14 +45,14 @@ export default async function Page({ params }: { params: { search?: string } }) 
 
   const mappedDataList: WebNavigationListRow[] | null = dataList
     ? dataList.map((item: any) => ({
-      id: String(item.id),
-      title: item.title,
-      url: item.url,
-      imageUrl: item.image_url || null,
-      thumbnailUrl: item.thumbnail_url || null,
-      content: item.content,
-      name: item.name,
-    }))
+        id: String(item.id),
+        title: item.title,
+        url: item.url,
+        imageUrl: item.image_url || null,
+        thumbnailUrl: item.thumbnail_url || null,
+        content: item.content,
+        name: item.name,
+      }))
     : null;
 
   return (
@@ -67,7 +71,9 @@ export default async function Page({ params }: { params: { search?: string } }) 
       <section className='flex flex-col gap-5'>
         {mappedDataList && !!mappedDataList.length && params?.search ? (
           <>
-            <h2 className='mb-1 text-left text-[18px] lg:text-2xl'>{t('result')}</h2>
+            <h2 className='mb-1 text-left text-[18px] lg:text-2xl'>
+              <span className='text-gray-500'>Tools For:</span> {decodeURI(params.search)}
+            </h2>
             <WebNavCardList dataList={mappedDataList!} />
           </>
         ) : (

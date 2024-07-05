@@ -5,7 +5,7 @@ import { createClient } from '@/db/supabase/client';
 import { getTranslations } from 'next-intl/server';
 
 import { RevalidateOneHour } from '@/lib/constants';
-import { WebNavigationListRow } from '@/lib/data'; // 确保导入正确路径
+import { WebNavigationListRow } from '@/lib/data';
 import { Separator } from '@/components/ui/separator';
 import Empty from '@/components/Empty';
 import WebNavCardList from '@/components/webNav/WebNavCardList';

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Home } from 'lucide-react';
 
 import {
@@ -18,18 +19,18 @@ export default function ExploreBreadcrumb({
     <Breadcrumb>
       <BreadcrumbList>
         {linkList.map((item) => (
-          <>
+          <React.Fragment key={item.href ? item.href + item.title : item.title}>
             <BreadcrumbItem>
               {!item.isLast && (
-                <BreadcrumbLink href={item.href} className='flex items-center gap-1 text-white/40'>
-                  {item.href === '/' && <Home className='size-4' />}
+                <BreadcrumbLink href={item.href} className='flex items-center gap-1 text-gray-600 hover:text-gray-800'>
+                  {item.href === '/' && <Home className='h-4 w-4' />}
                   {item.title}
                 </BreadcrumbLink>
               )}
-              {item.isLast && <BreadcrumbPage>{item.title}</BreadcrumbPage>}
+              {item.isLast && <BreadcrumbPage className='text-gray-800'>{item.title}</BreadcrumbPage>}
             </BreadcrumbItem>
-            {!item.isLast && <BreadcrumbSeparator className='text-white/40' />}
-          </>
+            {!item.isLast && <BreadcrumbSeparator className='mx-2 text-gray-600'>/</BreadcrumbSeparator>}
+          </React.Fragment>
         ))}
       </BreadcrumbList>
     </Breadcrumb>

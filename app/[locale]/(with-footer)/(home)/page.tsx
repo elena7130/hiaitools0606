@@ -37,7 +37,7 @@ export default async function Page() {
     supabase.from('web_navigation').select('*').order('collection_time', { ascending: false }),
   ]);
 
-  if (!navigationList) {
+  if (!navigationList || !categoryList) {
     return (
       <div className='relative w-full'>
         <div className='relative mx-auto w-full max-w-pc flex-1 px-3 lg:px-0'>
@@ -49,13 +49,15 @@ export default async function Page() {
             <SearchForm />
           </div>
           <div className='mb-10 mt-5'>
-            <TagList
-              data={categoryList!.map((item: any) => ({
-                id: String(item.id),
-                name: item.name,
-                href: `/category/${item.name}`,
-              }))}
-            />
+            {categoryList && (
+              <TagList
+                data={categoryList.map((item: any) => ({
+                  id: String(item.id),
+                  name: item.name,
+                  href: `/category/${item.name}`,
+                }))}
+              />
+            )}
           </div>
           <div className='text-center'>
             <p>Failed to load navigation data.</p>
@@ -98,13 +100,15 @@ export default async function Page() {
           <SearchForm />
         </div>
         <div className='mb-10 mt-5'>
-          <TagList
-            data={categoryList!.map((item: any) => ({
-              id: String(item.id),
-              name: item.name,
-              href: `/category/${item.name}`,
-            }))}
-          />
+          {categoryList && (
+            <TagList
+              data={categoryList.map((item: any) => ({
+                id: String(item.id),
+                name: item.name,
+                href: `/category/${item.name}`,
+              }))}
+            />
+          )}
         </div>
         <div className='relative flex justify-start gap-4'>
           <a href='#featured' className='z-20 inline-block bg-blue-100 px-4 py-2 text-center text-black'>

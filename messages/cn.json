@@ -172,6 +172,15 @@
     },
     "submit": {
       "title": "提交您的AI工具并获取流量 | Hiai工具箱"
-    }
+    },
+    "alternatives":{
+        "Home": "首页",
+        "Alternatives": "替代品",
+        "Top 10 Alternatives for": "排名前10个替代品",
+        "Find the Best Options": "找到最佳选择",
+        "Discover the top 10 alternatives for": "发现排名前10个替代品",
+        "Compare features and pricing to find the perfect solution for your needs": "比较功能和价格，找到最适合您的解决方案。",
+        "Explore the best alternatives for": "探索最佳替代品"
+      }
   }
 }

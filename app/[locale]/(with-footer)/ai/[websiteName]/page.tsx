@@ -7,6 +7,7 @@ import { getTranslations } from 'next-intl/server';
 import { Separator } from '@/components/ui/separator';
 import BaseImage from '@/components/image/BaseImage';
 import MarkdownProse from '@/components/MarkdownProse';
+import SimilarProducts from '@/components/SimilarProduct';
 
 export async function generateMetadata({
   params: { locale, websiteName },
@@ -80,6 +81,9 @@ export default async function Page({ params: { websiteName } }: { params: { webs
       <div className='mb-5 px-3 lg:px-0'>
         <h2 className='my-5 text-2xl text-white/40 lg:my-10'>{t('introduction')}</h2>
         <MarkdownProse markdown={data?.detail || ''} />
+      </div>
+      <div className='my-10'>
+        <SimilarProducts name={websiteName} />
       </div>
     </div>
   );

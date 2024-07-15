@@ -172,6 +172,16 @@
     },
     "submit": {
       "title": "Reichen Sie Ihr KI-Tool ein und erhalten Sie Traffic | Hi AI tools Verzeichnis"
+    },
+    "alternatives":
+    {
+      "Home": "Startseite",
+      "Alternatives": "Alternativen",
+      "Top 10 Alternatives for": "Top 10 Alternativen für",
+      "Find the Best Options": "Finden Sie die besten Optionen",
+      "Discover the top 10 alternatives for": "Entdecken Sie die Top 10 Alternativen für",
+      "Compare features and pricing to find the perfect solution for your needs": "Vergleichen Sie Funktionen und Preise, um die perfekte Lösung für Ihre Bedürfnisse zu finden.",
+      "Explore the best alternatives for": "Erkunden Sie die besten Alternativen für"
     }
   }
 }

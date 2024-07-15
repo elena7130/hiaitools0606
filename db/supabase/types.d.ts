@@ -80,6 +80,7 @@ export type Database = {
           url: string;
           website_data: string;
           featured: boolean; // 更新：添加 featured 属性
+          alternatives: string; // 更新
         };
         Insert: {
           category_name?: string | null;
@@ -96,6 +97,7 @@ export type Database = {
           url?: string | null;
           website_data?: string | null;
           featured?: boolean | null; // 更新：添加 featured 属性
+          alternatives: string; // 更新
         };
         Update: {
           category_name?: string | null;
@@ -112,6 +114,7 @@ export type Database = {
           url?: string | null;
           website_data?: string | null;
           featured?: boolean | null; // 更新：添加 featured 属性
+          alternatives: string | null; // 更新
         };
         Relationships: [];
       };

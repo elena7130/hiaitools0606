@@ -172,6 +172,15 @@
     },
     "submit": {
       "title": "Представьте свой инструмент ИИ и получите трафик | Справочник по инструментам ИИ Tap4"
-    }
+    },
+    "alternatives":{
+      "Home": "Главная",
+      "Alternatives": "Альтернативы",
+      "Top 10 Alternatives for": "Топ 10 альтернатив для",
+      "Find the Best Options": "Найдите лучшие варианты",
+      "Discover the top 10 alternatives for": "Откройте для себя топ 10 альтернатив для",
+      "Compare features and pricing to find the perfect solution for your needs": "Сравните функции и цены, чтобы найти идеальное решение для ваших нужд.",
+      "Explore the best alternatives for": "Изучите лучшие альтернативы для"
+    }    
   }
 }

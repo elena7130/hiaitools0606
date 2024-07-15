@@ -172,6 +172,15 @@
     },
     "submit": {
       "title": "提交您的AI工具並獲取流量 | Hi AI tools目錄"
+    },
+    "alternatives":{
+      "Home": "首頁",
+      "Alternatives": "替代方案",
+      "Top 10 Alternatives for": "前10個替代方案",
+      "Find the Best Options": "找到最佳選項",
+      "Discover the top 10 alternatives for": "發現前10個替代方案",
+      "Compare features and pricing to find the perfect solution for your needs": "比較功能和價格，以找到最適合您的解決方案。",
+      "Explore the best alternatives for": "探索最佳替代方案"
     }
   }
 }

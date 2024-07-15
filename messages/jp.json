@@ -164,6 +164,15 @@
     },
     "submit": {
       "title": "AIツールを提出してトラフィックを取得する | Hi AI toolsツールディレクトリ"
-    }
+    },
+    "alternatives":{
+      "Home": "ホーム",
+      "Alternatives": "代替案",
+      "Top 10 Alternatives for": "トップ10の代替案",
+      "Find the Best Options": "最高のオプションを見つける",
+      "Discover the top 10 alternatives for": "トップ10の代替案を見つける",
+      "Compare features and pricing to find the perfect solution for your needs": "機能と価格を比較して、あなたのニーズに最適なソリューションを見つける。",
+      "Explore the best alternatives for": "最高の代替案を探る"
+    }    
   }
 }

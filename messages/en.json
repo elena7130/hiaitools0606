@@ -180,6 +180,15 @@
     },
     "submit": {
       "title": "Submit your AI tool and get Get Traffic | Hi AI Tools"
-    }
+    },
+    "alternatives":{
+      "Home": "Home",
+      "Alternatives": "Alternatives",
+      "Top 10 Alternatives for": "Top 10 Alternatives for",
+      "Find the Best Options": "Find the Best Options",
+      "Discover the top 10 alternatives for": "Discover the top 10 alternatives for",
+      "Compare features and pricing to find the perfect solution for your needs": "Compare features and pricing to find the perfect solution for your needs.",
+      "Explore the best alternatives for": "Explore the best alternatives for"
+    }    
   }
 }

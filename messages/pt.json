@@ -172,6 +172,15 @@
     },
     "submit": {
       "title": "Envie sua ferramenta de IA e obtenha Tráfego | Diretório de IA do Tap4"
-    }
+    },
+    "alternatives":{
+      "Home": "Início",
+      "Alternatives": "Alternativas",
+      "Top 10 Alternatives for": "Top 10 Alternativas para",
+      "Find the Best Options": "Encontre as melhores opções",
+      "Discover the top 10 alternatives for": "Descubra as 10 melhores alternativas para",
+      "Compare features and pricing to find the perfect solution for your needs": "Compare recursos e preços para encontrar a solução perfeita para suas necessidades.",
+      "Explore the best alternatives for": "Explore as melhores alternativas para"
+    }    
   }
 }

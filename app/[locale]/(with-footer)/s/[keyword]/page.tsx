@@ -49,7 +49,7 @@ function KeyworldResultPage() {
 
   const linkList = [
     { href: '/', title: 'Home' },
-    { href: '/new-path', title: 'New Path' }, // 修改路径名称
+    { href: '/new-path', title: 'Ai search' }, // 修改路径名称
     { title: keyword || '', isLast: true },
   ];
 

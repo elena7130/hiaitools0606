@@ -18,7 +18,8 @@
     "tattoo": "AIタトゥージェネレーター",
     "privacy": "プライバシーポリシー",
     "termsConditions": "利用規約",
-    "contactUs": "お問い合わせ"
+    "contactUs": "お問い合わせ",
+    "AI Coloring Pages":"AIぬりえページ"
   },
   "Faq": {
     "title": "よくある質問",
@@ -113,7 +114,8 @@
     "title": "Hi AI tools - 2024年のベストAIツールを発見する",
     "subTitle": "Hi AI toolsツールディレクトリでお気に入りのAIツールを手に入れましょう。 AIツールリストはGPT-4oによって毎日更新されます。 ここで無料で提出して、SEOを強化しましょう。",
     "just-landed": "新着",
-    "exploreMore": "もっと多くのAIツールを入手する"
+    "exploreMore": "もっと多くのAIツールを入手する",
+    "featured":"特集"
   },
   "Submit": {
     "title": "AIツールを提出する",

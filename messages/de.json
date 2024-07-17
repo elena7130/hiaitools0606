@@ -15,10 +15,10 @@
     "subTitle": "Entdecken Sie die besten KI-Tools von 2024 mit dem Hi AI tools Tools Verzeichnis!",
     "support": "Unterstützung",
     "tap4": "Hi AI tools",
-    "AI Coloring Pages": "AI Coloringpages-Generator",
+    "AI Coloring Pages": "KI-Ausmalbilder",
     "privacy": "Datenschutzrichtlinie",
     "termsConditions": "Nutzungsbedingungen",
-    "contactUs": "Kontaktieren Sie uns"
+    "contactUs": "Kontaktieren Sie uns",
   },
   "Faq": {
     "title": "Häufig gestellte Fragen",
@@ -121,7 +121,8 @@
     "title": "Hi AI tools - Entdecken Sie die besten KI-Tools 2024",
     "subTitle": "Holen Sie sich Ihre Lieblings-KI-Tools im Hi AI tools Tools Verzeichnis. Die Liste der KI-Tools wird täglich von GPT-4o aktualisiert. Es ist kostenlos, sie hier einzureichen, um Ihr SEO jetzt zu verbessern.",
     "just-landed": " Gerade gelandet",
-    "exploreMore": "Weitere KI-Tools entdecken"
+    "exploreMore": "Weitere KI-Tools entdecken",
+    "featured":"Ausgewählt"
   },
   "Submit": {
     "title": "Reichen Sie Ihr KI-Tool ein",

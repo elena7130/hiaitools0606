@@ -18,7 +18,9 @@
     "tattoo": "AI紋身生成器",
     "privacy": "隱私政策",
     "termsConditions": "條款和條件",
-    "contactUs": "聯繫我們"
+    "contactUs": "聯繫我們",
+    "AI Coloring Pages":"AI塗色頁"
+    
   },
   "Faq": {
     "title": "常見問題",
@@ -121,7 +123,8 @@
     "title": "Hi AI tools - 發現2024年最佳AI工具",
     "subTitle": "在Hi AI tools工具目錄中找到您喜愛的AI工具。AI工具列表每天由GPT-4o更新。現在免費提交以提升您的SEO。",
     "just-landed": "剛剛上新",
-    "exploreMore": "獲取更多AI工具"
+    "exploreMore": "獲取更多AI工具",
+    "featured":"精選"
   },
   "Submit": {
     "title": "提交您的AI工具",

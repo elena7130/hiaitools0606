@@ -18,7 +18,8 @@
     "tattoo": "Générateur de Tatouages AI",
     "privacy": "Politique de confidentialité",
     "termsConditions": "Termes et conditions",
-    "contactUs": "Contactez-nous"
+    "contactUs": "Contactez-nous",
+    "AI Coloring Pages":"Pages à Colorier IA"
   },
   "Faq": {
     "title": "FAQ",
@@ -180,7 +181,8 @@
       "Find the Best Options": "Trouvez les meilleures options",
       "Discover the top 10 alternatives for": "Découvrez les 10 meilleures alternatives pour",
       "Compare features and pricing to find the perfect solution for your needs": "Comparez les fonctionnalités et les prix pour trouver la solution parfaite pour vos besoins.",
-      "Explore the best alternatives for": "Explorez les meilleures alternatives pour"
+      "Explore the best alternatives for": "Explorez les meilleures alternatives pour",
+      "featured":"En vedette"
     }    
   }
 }

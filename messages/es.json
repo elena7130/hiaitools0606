@@ -116,6 +116,7 @@
   },
   "NotFound": {
     "title": "404 No Encontrado",
+    "description": "Lo sentimos, la página que buscas no existe.",
     "goHome": "Ir a Inicio"
   },
   "Home": {

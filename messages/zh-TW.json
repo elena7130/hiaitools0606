@@ -117,7 +117,8 @@
   },
   "NotFound": {
     "title": "404 未找到",
-    "goHome": "回到首頁"
+    "goHome": "回到首頁",
+    "description": "抱歉，您查找的頁面不存在。"
   },
   "Home": {
     "title": "Hi AI tools - 發現2024年最佳AI工具",

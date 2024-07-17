@@ -108,7 +108,8 @@
   },
   "NotFound": {
     "title": "404 Not Found",
-    "goHome": "ホームへ"
+    "goHome": "ホームへ",
+    "description": "申し訳ございませんが、お探しのページは見つかりません。"
   },
   "Home": {
     "title": "Hi AI tools - 2024年のベストAIツールを発見する",

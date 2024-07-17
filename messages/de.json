@@ -115,7 +115,8 @@
   },
   "NotFound": {
     "title": "404 Nicht gefunden",
-    "goHome": "Zur Startseite"
+    "goHome": "Zur Startseite",
+    "description": "Entschuldigung, die von Ihnen gesuchte Seite ist nicht vorhanden."
   },
   "Home": {
     "title": "Hi AI tools - Entdecken Sie die besten KI-Tools 2024",

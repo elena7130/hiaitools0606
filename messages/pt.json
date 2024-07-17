@@ -116,7 +116,8 @@
   },
   "NotFound": {
     "title": "404 Não Encontrado",
-    "goHome": "ir para casa"
+    "goHome": "ir para casa",
+    "description": "Desculpe, a página que você procura não existe."
   },
   "Home": {
     "title": "Tap4 IA - Descubra As Melhores Ferramentas de IA 2024",

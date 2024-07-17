@@ -116,7 +116,8 @@
   },
   "NotFound": {
     "title": "404 Non Trouvé",
-    "goHome": "Retour à l'accueil"
+    "goHome": "Retour à l'accueil",
+    "description": "Désolé, la page que vous recherchez n'existe pas."
   },
   "Home": {
     "title": "Hi AI tools - Découvrez les meilleurs outils AI de 2024",

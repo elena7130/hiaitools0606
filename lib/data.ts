@@ -6,6 +6,7 @@ export type WebNavigationListRow = {
   thumbnailUrl: string | null;
   title: string;
   url: string;
+  alternatives_array?: number[];
 };
 
 export type WebNavigationDetailData = {
@@ -21,6 +22,7 @@ export type WebNavigationDetailData = {
   title: string;
   url: string;
   websiteData: string;
+  alternatives_array?: number[];
 };
 
 export const dataList: WebNavigationListRow[] = [

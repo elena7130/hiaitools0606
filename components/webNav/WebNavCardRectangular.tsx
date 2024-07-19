@@ -1,4 +1,3 @@
-// components/webNav/WebNavCardRectangular.tsx
 import Link from 'next/link';
 import { SquareArrowOutUpRight } from 'lucide-react';
 
@@ -6,6 +5,7 @@ import { WebNavigationListRow } from '@/lib/data';
 
 import BaseImage from '../image/BaseImage';
 
+// 渲染单个卡片组件
 export default function WebNavCardRectangular({ name, thumbnailUrl, title, url, content }: WebNavigationListRow) {
   return (
     <div
@@ -25,16 +25,11 @@ export default function WebNavCardRectangular({ name, thumbnailUrl, title, url, 
       <div className='flex w-2/3 flex-col '>
         <div className='flex items-center'>
           <a href={url} title={title} target='_blank' rel='noreferrer nofollow' className='hover:opacity-70 '>
-            <h3 className='line-clamp-1 text-sm font-bold text-gray-900 lg:text-base'>{title}</h3>
+            <h3 className='mr-2 line-clamp-1 text-sm font-bold text-gray-900 lg:text-base'>{title}</h3>
           </a>
-          <a
-            href={url}
-            title={title}
-            target='_blank'
-            rel='noreferrer nofollow'
-            className='ml-2 flex-grow hover:opacity-70'
-          >
-            <SquareArrowOutUpRight className='h-4 w-4 text-gray-900' /> {/* 添加图标链接 */}
+          <a href={url} title={title} target='_blank' rel='noreferrer nofollow' className='hover:opacity-70'>
+            <SquareArrowOutUpRight className='size-5 text-gray-700 ' />
+            <span className='sr-only'>{title}</span>
           </a>
         </div>
         <p className='mt-2 text-xs text-gray-900 lg:text-sm'>{content}</p>

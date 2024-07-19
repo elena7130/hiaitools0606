@@ -23,7 +23,7 @@ function SimilarProducts({ name }: { name: string }) {
           thumbnailUrl: item.thumbnail_url || null,
           content: item.content,
         }));
-        setAlternatives(transformedData);
+        setAlternatives(transformedData.slice(0, 4));
       } catch (error) {
         // console.error('Error fetching alternatives:', error);
       }
@@ -38,7 +38,7 @@ function SimilarProducts({ name }: { name: string }) {
         Explore other comparable options for <strong>{name}</strong> that might suit your needs.
         <Link href={`/alternatives/${name}`} legacyBehavior>
           <a href={`/alternatives/${name}`} className='text-blue-500 underline hover:text-blue-700'>
-            👓View all {name} alternatives
+            👓 View all {name} alternatives
           </a>
         </Link>
       </p>

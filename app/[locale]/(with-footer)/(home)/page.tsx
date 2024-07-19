@@ -77,6 +77,7 @@ export default async function Page() {
       thumbnailUrl: item.thumbnail_url || null,
       content: item.content,
       name: item.name,
+      alternatives: '', // Add the "alternatives" property here
     }));
 
   const justLandedList = (navigationList as WebNavigation[]).slice(0, 12).map((item) => ({
@@ -87,6 +88,7 @@ export default async function Page() {
     thumbnailUrl: item.thumbnail_url || null,
     content: item.content,
     name: item.name,
+    alternatives: '', // Add the "alternatives" property here
   }));
 
   return (

@@ -162,9 +162,9 @@
   },
   "Metadata": {
     "home": {
-      "title": "Discover the Best AI Tools & AI generators | Hi AI Tools",
-      "description": "Hi AI  Tools is a tool provides free AI Tools Tools. Get your favorite AI tools with Hi AI  Tools, Hi AI Tools aims to collect all the AI tools and provide the best for users.",
-      "keywords": "Hi AI  Tools"
+      "title": "Discover the Best and latest AI Tools in 2024 | Hi AI Tools",
+      "description": "Hi AI Tools collects AI products from around the world and categorizes them, providing product comparisons to help you quickly find the AI tools that suit you, saving you time. Whether you're looking to boost productivity, simplify tasks, or explore new technology, Hi AI Tools has what you need. Quickly find your favorite AI tools and save valuable time with Hi AI Tools. Update daily.",
+      "keywords": "Hi AI Tools"
     },
     "ai": {
       "titleSubfix": "Hi AI  Tools",
@@ -184,11 +184,10 @@
     "alternatives":{
       "Home": "Home",
       "Alternatives": "Alternatives",
-      "Top 10 Alternatives for": "Top 10 Alternatives for",
-      "Find the Best Options": "Find the Best Options",
-      "Discover the top 10 alternatives for": "Discover the top 10 alternatives for",
-      "Compare features and pricing to find the perfect solution for your needs": "Compare features and pricing to find the perfect solution for your needs.",
-      "Explore the best alternatives for": "Explore the best alternatives for"
+      "title": "Best {productName} Alternative in 2024",
+      "description": "Explore the best alternatives for {productName} alternative. Compare features and prices to choose the best match for your needs.",
+      "title1": "Best {productName} Alternative in 2024",
+      "description1": "Explore the best alternatives for {productName} alternative. Compare features and prices to choose the best match for your needs."
     }    
   }
 }

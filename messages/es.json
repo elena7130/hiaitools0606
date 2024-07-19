@@ -123,7 +123,8 @@
     "title": "Hi AI tools - Descubre las Mejores Herramientas de IA 2024",
     "subTitle": "Obtén tus herramientas de IA favoritas en el Directorio de Herramientas de IA de Tap4. La lista de herramientas de IA se actualiza diariamente por GPT-4o. Es gratis enviar aquí para mejorar tu SEO ahora.",
     "just-landed": " Recién llegado",
-    "exploreMore": "Explorar Más Herramientas de IA"
+    "exploreMore": "Explorar Más Herramientas de IA",
+    "search":"buscar"
   },
   "Submit": {
     "title": "Envía tu Herramienta de IA",
@@ -175,16 +176,11 @@
     "submit": {
       "title": "Envía tu herramienta de IA y obtén tráfico | Directorio de IA de Tap4"
     },
-    "alternatives":
-    {
+    "alternatives": {
       "Home": "Inicio",
       "Alternatives": "Alternativas",
-      "Top 10 Alternatives for": "Las 10 mejores alternativas para",
-      "Find the Best Options": "Encuentra las mejores opciones",
-      "Discover the top 10 alternatives for": "Descubre las 10 mejores alternativas para",
-      "Compare features and pricing to find the perfect solution for your needs": "Compara características y precios para encontrar la solución perfecta para tus necesidades.",
-      "Explore the best alternatives for": "Explora las mejores alternativas para",
-      "featured":"Destacado"
-    }    
+      "title": "Mejor alternativa a {productName} en 2024",
+      "description": "Explore las mejores alternativas para {productName}. Compare características y precios para elegir la mejor opción para sus necesidades."
+    }  
   }
 }

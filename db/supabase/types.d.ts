@@ -81,6 +81,7 @@ export type Database = {
           website_data: string;
           featured: boolean; // 更新：添加 featured 属性
           alternatives: string; // 更新
+          alternatives_array: number[]; // 更新
         };
         Insert: {
           category_name?: string | null;

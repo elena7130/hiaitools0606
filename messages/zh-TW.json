@@ -125,7 +125,8 @@
     "subTitle": "在Hi AI tools工具目錄中找到您喜愛的AI工具。AI工具列表每天由GPT-4o更新。現在免費提交以提升您的SEO。",
     "just-landed": "剛剛上新",
     "exploreMore": "獲取更多AI工具",
-    "featured":"精選"
+    "featured":"精選",
+     "search":"搜尋"
   },
   "Submit": {
     "title": "提交您的AI工具",
@@ -177,14 +178,11 @@
     "submit": {
       "title": "提交您的AI工具並獲取流量 | Hi AI tools目錄"
     },
-    "alternatives":{
+    "alternatives": {
       "Home": "首頁",
-      "Alternatives": "替代方案",
-      "Top 10 Alternatives for": "前10個替代方案",
-      "Find the Best Options": "找到最佳選項",
-      "Discover the top 10 alternatives for": "發現前10個替代方案",
-      "Compare features and pricing to find the perfect solution for your needs": "比較功能和價格，以找到最適合您的解決方案。",
-      "Explore the best alternatives for": "探索最佳替代方案"
+      "Alternatives": "替代品",
+      "title": "2024年最佳{productName}替代品",
+      "description": "探索{productName}的最佳替代品。比較功能和價格，以選擇最適合您需求的替代品。"
     }
   }
 }

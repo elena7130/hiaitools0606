@@ -123,7 +123,8 @@
     "title": "Hi AI tools - Découvrez les meilleurs outils AI de 2024",
     "subTitle": "Trouvez vos outils AI préférés dans le Répertoire des outils AI de Tap4. La liste des outils AI est mise à jour quotidiennement par GPT-4o. Soumettez gratuitement maintenant pour améliorer votre SEO.",
     "just-landed": "Nouvellement arrivé",
-    "exploreMore": "Obtenez plus d'outils AI"
+    "exploreMore": "Obtenez plus d'outils AI",
+    "search":"chercher"
   },
   "Submit": {
     "title": "Soumettez votre outil AI",
@@ -175,15 +176,11 @@
     "submit": {
       "title": "Soumettez votre outil AI et obtenez du trafic | Répertoire des outils AI de Tap4"
     },
-    "alternatives":{
+    "alternatives": {
       "Home": "Accueil",
       "Alternatives": "Alternatives",
-      "Top 10 Alternatives for": "Top 10 Alternatives pour",
-      "Find the Best Options": "Trouvez les meilleures options",
-      "Discover the top 10 alternatives for": "Découvrez les 10 meilleures alternatives pour",
-      "Compare features and pricing to find the perfect solution for your needs": "Comparez les fonctionnalités et les prix pour trouver la solution parfaite pour vos besoins.",
-      "Explore the best alternatives for": "Explorez les meilleures alternatives pour",
-      "featured":"En vedette"
-    }    
+      "title": "Meilleure alternative à {productName} en 2024",
+      "description": "Découvrez les meilleures alternatives à {productName}. Comparez les fonctionnalités et les prix pour choisir la meilleure option pour vos besoins."
+    } 
   }
 }

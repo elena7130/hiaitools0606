@@ -123,7 +123,8 @@
     "subTitle": "Holen Sie sich Ihre Lieblings-KI-Tools im Hi AI tools Tools Verzeichnis. Die Liste der KI-Tools wird täglich von GPT-4o aktualisiert. Es ist kostenlos, sie hier einzureichen, um Ihr SEO jetzt zu verbessern.",
     "just-landed": " Gerade gelandet",
     "exploreMore": "Weitere KI-Tools entdecken",
-    "featured":"Ausgewählt"
+    "featured":"Ausgewählt",
+    "search":"suchen"
   },
   "Submit": {
     "title": "Reichen Sie Ihr KI-Tool ein",
@@ -175,15 +176,11 @@
     "submit": {
       "title": "Reichen Sie Ihr KI-Tool ein und erhalten Sie Traffic | Hi AI tools Verzeichnis"
     },
-    "alternatives":
-    {
+    "alternatives": {
       "Home": "Startseite",
       "Alternatives": "Alternativen",
-      "Top 10 Alternatives for": "Top 10 Alternativen für",
-      "Find the Best Options": "Finden Sie die besten Optionen",
-      "Discover the top 10 alternatives for": "Entdecken Sie die Top 10 Alternativen für",
-      "Compare features and pricing to find the perfect solution for your needs": "Vergleichen Sie Funktionen und Preise, um die perfekte Lösung für Ihre Bedürfnisse zu finden.",
-      "Explore the best alternatives for": "Erkunden Sie die besten Alternativen für"
+      "title": "Beste {productName} Alternative im Jahr 2024",
+      "description": "Entdecken Sie die besten Alternativen zu {productName}. Vergleichen Sie Funktionen und Preise, um die beste Wahl für Ihre Bedürfnisse zu treffen."
     }
   }
 }

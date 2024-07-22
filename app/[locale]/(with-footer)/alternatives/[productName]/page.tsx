@@ -5,6 +5,8 @@ import { getTranslations } from 'next-intl/server';
 
 import { WebNavigationListRow } from '@/lib/data'; // 确保路径和类型定义正确
 import ExploreBreadcrumb from '@/components/explore/ExploreBreadcrumb'; // 确保路径和扩展名正确
+
+import SeoScript from '@/components/seo/SeoScript'; // 确保路径正确
 import WebNavCardRectangularList from '@/components/webNav/WebNavCardRectangularList';
 
 export async function generateMetadata({
@@ -20,7 +22,12 @@ export async function generateMetadata({
   }
   const title = t('title', { productName: data.name });
   const description = t('description', { productName: data.name });
+
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
+    alternates: {
+      canonical: './',
+    },
     title,
     description,
   };
@@ -67,6 +74,7 @@ export default async function Page({
   ];
   return (
     <div className='relative w-full bg-white'>
+      <SeoScript />
       <div className='container mx-auto px-4 py-6'>
         <ExploreBreadcrumb linkList={linkList} />
       </div>

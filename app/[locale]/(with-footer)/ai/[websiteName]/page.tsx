@@ -7,6 +7,7 @@ import { getTranslations } from 'next-intl/server';
 import { Separator } from '@/components/ui/separator';
 import BaseImage from '@/components/image/BaseImage';
 import MarkdownProse from '@/components/MarkdownProse';
+import SeoScript from '@/components/seo/SeoScript'; // 确保路径正确
 import SimilarProducts from '@/components/SimilarProduct';
 
 export async function generateMetadata({
@@ -26,6 +27,10 @@ export async function generateMetadata({
   }
 
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
+    alternates: {
+      canonical: './',
+    },
     title: `${data[0].title} | ${t('titleSubfix')}`,
     description: data[0].content,
   };
@@ -44,6 +49,7 @@ export default async function Page({ params: { websiteName } }: { params: { webs
     <div className='w-full'>
       <div className='flex flex-col px-6 py-5 lg:h-[323px] lg:flex-row lg:justify-between lg:px-0 lg:py-10'>
         <div className='flex flex-col items-center lg:items-start'>
+          <SeoScript />
           <div className='space-y-1 text-balance lg:space-y-3'>
             <h1 className='text-2xl lg:text-5xl'>{data.title}</h1>
             <h2 className='text-xs lg:text-sm'>{data.content}</h2>

@@ -25,7 +25,6 @@ export default function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <link rel='canonical' href='https://www.hiaitools.com' />
         <link rel='icon' sizes='16x16' href='/app/11.png' type='image/x-icon' />
       </head>
       <body className='relative mx-auto flex min-h-screen flex-col bg-gray-100 text-gray-900'>
@@ -44,7 +43,7 @@ export default function RootLayout({
           <Navigation />
           <Suspense fallback={<Loading />}>{children}</Suspense>
         </NextIntlClientProvider>
-        <SeoScript title='Your Global Title' />
+        <SeoScript />
         <GoogleAdScript />
       </body>
     </html>

@@ -48,6 +48,10 @@ export async function generateMetadata({ params }: { params: { code: string } })
   return {
     title: `Best ${data.title} AI tools in 2024`,
     description: data.description || 'Default description',
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
+    alternates: {
+      canonical: './',
+    },
   };
 }
 

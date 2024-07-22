@@ -12,6 +12,10 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     title: t('title'),
     description: t('description'),
     keywords: t('keywords'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
+    alternates: {
+      canonical: './',
+    },
   };
 }
 

@@ -1,14 +1,11 @@
 'use client';
 
+import { useEffect } from 'react';
 import Head from 'next/head';
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 
-interface SeoScriptProps {
-  title: string;
-}
-
-export default function SeoScript({ title }: SeoScriptProps) {
+export default function SeoScript() {
   const currentPath = usePathname();
 
   const hreflangs = [
@@ -25,10 +22,13 @@ export default function SeoScript({ title }: SeoScriptProps) {
 
   const canonicalHref = `https://www.hiatools.com${currentPath}`;
 
+  useEffect(() => {
+    console.log('Canonical URL:', canonicalHref); // 调试日志
+  }, [canonicalHref]);
+
   return (
     <>
       <Head>
-        <title>{title}</title>
         {hreflangs.map(({ href, hrefLang }) => (
           <link key={hrefLang} rel='alternate' href={href} hrefLang={hrefLang} />
         ))}

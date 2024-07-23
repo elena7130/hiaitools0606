@@ -23,7 +23,7 @@ export default function SeoScript() {
   const canonicalHref = `https://www.hiatools.com${currentPath}`;
 
   useEffect(() => {
-    console.log('Canonical URL:', canonicalHref); // 调试日志
+    // console.log('Canonical URL:', canonicalHref); // 调试日志
   }, [canonicalHref]);
 
   return (

@@ -183,6 +183,12 @@
       "Alternatives": "替代品",
       "title": "2024年最佳{productName}替代品",
       "description": "探索{productName}的最佳替代品。比較功能和價格，以選擇最適合您需求的替代品。"
+    },
+    "categories": {
+      "Categories": "分類和使用案例",
+      "title": "2024年最新的AI工具分類和使用案例列表",
+      "description": "探索按類別和使用案例分類的AI工具。無論您是在研究AI產品還是尋找特定工具，您都可以找到井然有序且全面的摘要，以滿足您的需求。",
+      "Home": "首頁"
     }
   }
 }

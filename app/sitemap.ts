@@ -11,6 +11,10 @@ type SitemapEntry = {
   priority?: number;
 };
 
+type WebNavigation = {
+  keyword: string | null;
+};
+
 function escapeXml(unsafe: string): string {
   return unsafe.replace(/[<>&'"]/g, (c) => {
     switch (c) {
@@ -67,6 +71,23 @@ async function getDynamicPaths(): Promise<SitemapEntry[]> {
         changeFrequency: 'daily' as 'daily',
         priority: 0.7,
       })),
+    );
+  }
+
+  // 新增关键词路径
+  const { data: keywordData, error: keywordError } = await supabase.from('web_navigation').select('keyword');
+
+  if (!keywordError && keywordData) {
+    const keywords = keywordData as unknown as WebNavigation[];
+    paths.push(
+      ...keywords
+        .filter((item) => item.keyword && item.keyword.trim() !== '') // 过滤掉空关键词
+        .map((item) => ({
+          url: `s/${escapeXml(item.keyword!)}`,
+          lastModified: new Date(),
+          changeFrequency: 'daily' as 'daily',
+          priority: 0.7,
+        })),
     );
   }
 

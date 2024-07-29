@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/indent */
-export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
-
 export type Database = {
   public: {
     Tables: {
@@ -82,6 +79,7 @@ export type Database = {
           featured: boolean; // 更新：添加 featured 属性
           alternatives: string; // 更新
           alternatives_array: number[]; // 更新
+          usecase: string; // 更新
         };
         Insert: {
           category_name?: string | null;
@@ -99,6 +97,7 @@ export type Database = {
           website_data?: string | null;
           featured?: boolean | null; // 更新：添加 featured 属性
           alternatives: string; // 更新
+          usecase: string; // 更新
         };
         Update: {
           category_name?: string | null;
@@ -116,6 +115,28 @@ export type Database = {
           website_data?: string | null;
           featured?: boolean | null; // 更新：添加 featured 属性
           alternatives: string | null; // 更新
+          usecase: string; // 更新
+        };
+        Relationships: [];
+      };
+      usecase: {
+        Row: {
+          id: number;
+          name: string;
+          icon: string;
+          category_name: string;
+        };
+        Insert: {
+          id?: number;
+          name: string;
+          icon: string;
+          category_name: string;
+        };
+        Update: {
+          id?: number;
+          name?: string;
+          icon?: string;
+          category_name?: string;
         };
         Relationships: [];
       };
@@ -138,75 +159,4 @@ export type Database = {
 export type NavigationCategory = Database['public']['Tables']['navigation_category']['Row'];
 export type Submit = Database['public']['Tables']['submit']['Row'];
 export type WebNavigation = Database['public']['Tables']['web_navigation']['Row'];
-
-type PublicSchema = Database[Extract<keyof Database, 'public'>];
-
-export type Tables<
-  PublicTableNameOrOptions extends keyof (PublicSchema['Tables'] & PublicSchema['Views']) | { schema: keyof Database },
-  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
-    ? keyof (Database[PublicTableNameOrOptions['schema']]['Tables'] &
-        Database[PublicTableNameOrOptions['schema']]['Views'])
-    : never = never,
-> = PublicTableNameOrOptions extends { schema: keyof Database }
-  ? (Database[PublicTableNameOrOptions['schema']]['Tables'] &
-      Database[PublicTableNameOrOptions['schema']]['Views'])[TableName] extends {
-      Row: infer R;
-    }
-    ? R
-    : never
-  : PublicTableNameOrOptions extends keyof (PublicSchema['Tables'] & PublicSchema['Views'])
-    ? (PublicSchema['Tables'] & PublicSchema['Views'])[PublicTableNameOrOptions] extends {
-        Row: infer R;
-      }
-      ? R
-      : never
-    : never;
-
-export type TablesInsert<
-  PublicTableNameOrOptions extends keyof PublicSchema['Tables'] | { schema: keyof Database },
-  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
-    ? keyof Database[PublicTableNameOrOptions['schema']]['Tables']
-    : never = never,
-> = PublicTableNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicTableNameOrOptions['schema']]['Tables'][TableName] extends {
-      Insert: infer I;
-    }
-    ? I
-    : never
-  : PublicTableNameOrOptions extends keyof PublicSchema['Tables']
-    ? PublicSchema['Tables'][PublicTableNameOrOptions] extends {
-        Insert: infer I;
-      }
-      ? I
-      : never
-    : never;
-
-export type TablesUpdate<
-  PublicTableNameOrOptions extends keyof PublicSchema['Tables'] | { schema: keyof Database },
-  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
-    ? keyof Database[PublicTableNameOrOptions['schema']]['Tables']
-    : never = never,
-> = PublicTableNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicTableNameOrOptions['schema']]['Tables'][TableName] extends {
-      Update: infer U;
-    }
-    ? U
-    : never
-  : PublicTableNameOrOptions extends keyof PublicSchema['Tables']
-    ? PublicSchema['Tables'][PublicTableNameOrOptions] extends {
-        Update: infer U;
-      }
-      ? U
-      : never
-    : never;
-
-export type Enums<
-  PublicEnumNameOrOptions extends keyof PublicSchema['Enums'] | { schema: keyof Database },
-  EnumName extends PublicEnumNameOrOptions extends { schema: keyof Database }
-    ? keyof Database[PublicEnumNameOrOptions['schema']]['Enums']
-    : never = never,
-> = PublicEnumNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicEnumNameOrOptions['schema']]['Enums'][EnumName]
-  : PublicEnumNameOrOptions extends keyof PublicSchema['Enums']
-    ? PublicSchema['Enums'][PublicEnumNameOrOptions]
-    : never;
+export type Usecase = Database['public']['Tables']['usecase']['Row'];

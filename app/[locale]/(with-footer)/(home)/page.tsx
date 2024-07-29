@@ -37,35 +37,16 @@ export default async function Page() {
     supabase.from('web_navigation').select('*').order('collection_time', { ascending: false }),
   ]);
 
-  if (!navigationList || !categoryList) {
-    return (
-      <div className='relative w-full'>
-        <div className='relative mx-auto w-full max-w-pc flex-1 px-3 lg:px-0'>
-          <div className='my-5 flex flex-col text-center lg:mx-auto lg:my-10 lg:gap-1'>
-            <h1 className='text-2xl font-bold text-black lg:text-5xl'>{t('title')}</h1>
-            <h2 className='text-balance text-xs font-bold text-black lg:text-sm'>{t('subTitle')}</h2>
-          </div>
-          <div className='flex w-full items-center justify-center'>
-            <SearchForm />
-          </div>
-          <div className='mb-10 mt-5'>
-            {categoryList && (
-              <TagList
-                data={categoryList.map((item: any) => ({
-                  id: String(item.id),
-                  name: item.name,
-                  href: `/category/${item.name}`,
-                }))}
-              />
-            )}
-          </div>
-          <div className='text-center'>
-            <p>Failed to load navigation data.</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const aiUseCases = [
+    { name: 'ai-baby-generator', icon: '👶' },
+    { name: 'ai-book-writing', icon: '📕' },
+    { name: 'ai-tools-directory', icon: '⭐' },
+    { name: 'ai-characters', icon: '💋' },
+    { name: 'ai-tattoo-generator', icon: '⚙️' },
+    // 可以在这里添加更多用例
+  ];
+
+  const maxItemsToShow = 6; // 设置显示的最大标签数
 
   const featuredList = (navigationList as WebNavigation[])
     .filter((item) => item.featured)
@@ -101,17 +82,56 @@ export default async function Page() {
         <div className='flex w-full items-center justify-center'>
           <SearchForm />
         </div>
+
+        {/* AI Categories 部分 */}
         <div className='mb-10 mt-5'>
-          {categoryList && (
-            <TagList
-              data={categoryList.map((item: any) => ({
-                id: String(item.id),
-                name: item.name,
-                href: `/category/${item.name}`,
-              }))}
-            />
-          )}
+          <div className='flex items-center'>
+            <h3 className='text-xl font-bold text-black'>AI Categories:</h3>
+            <div className='ml-4 flex flex-wrap gap-2'>
+              {categoryList && (
+                <TagList
+                  data={categoryList
+                    .map((item: any) => ({
+                      id: String(item.id),
+                      name: item.name,
+                      href: `/category/${item.name}`,
+                    }))
+                    .slice(0, maxItemsToShow)} // 显示限制的个数
+                />
+              )}
+              {categoryList && categoryList.length > maxItemsToShow && (
+                <a href='/categories' className='tag rounded-lg bg-[#dddee0] p-2 shadow-lg'>
+                  》
+                </a>
+              )}
+            </div>
+          </div>
         </div>
+
+        <div className='mb-10 mt-2'>
+          <div className='flex items-center'>
+            <h3 className='text-xl font-bold text-black'>AI Use Cases:</h3>
+            <div className='ml-4 flex flex-wrap gap-2 '>
+              {' '}
+              {/* 增加 margin-left */}
+              {aiUseCases.slice(0, maxItemsToShow).map((useCase) => (
+                <a
+                  key={useCase.name}
+                  href={`/usecase/${useCase.name}`}
+                  className='tag rounded-lg bg-[#dddee0] p-2 shadow-lg'
+                >
+                  {useCase.icon} {useCase.name}
+                </a>
+              ))}
+              {maxItemsToShow && (
+                <a href='/categories' className='tag rounded-lg bg-[#dddee0] p-2 shadow-lg'>
+                  》
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+
         <div className='relative flex justify-start gap-4'>
           <a href='#featured' className='z-20 inline-block bg-blue-100 px-4 py-2 text-center text-black'>
             {t('featured')}

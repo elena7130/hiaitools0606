@@ -188,6 +188,17 @@
       "description": "Explore the best alternatives for {productName} alternative. Compare features and prices to choose the best match for your needs.",
       "title1": "Best {productName} Alternative in 2024",
       "description1": "Explore the best alternatives for {productName} alternative. Compare features and prices to choose the best match for your needs."
-    }    
+    },
+    "usecase":{
+      "title": "Discover the Best {usecase} AI tools in 2024",
+      "description": "Discover the best {usecase} tools in 2024.",
+      "Home": "Home"
+    },
+    "categories":{
+      "Categories":"Categories&Usecases",
+      "title": "The Latest AI Tool Categories & Use Cases List in 2024",
+      "description": "Explore AI tools categorized by both category and use case. Whether you're researching AI products or looking for specific tools, you'll find well-organized and comprehensive summaries to suit your needs.",
+      "Home": "Home"
+    }
   }
 }

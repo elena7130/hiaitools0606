@@ -181,6 +181,12 @@
       "Alternatives": "Alternativas",
       "title": "Mejor alternativa a {productName} en 2024",
       "description": "Explore las mejores alternativas para {productName}. Compare características y precios para elegir la mejor opción para sus necesidades."
+    },
+    "categories": {
+      "Categories": "Categorías y Casos de Uso",
+      "title": "Las Últimas Categorías de Herramientas de IA y Casos de Uso en 2024",
+      "description": "Explora herramientas de IA categorizadas tanto por categoría como por caso de uso. Ya sea que estés investigando productos de IA o buscando herramientas específicas, encontrarás resúmenes bien organizados y completos para satisfacer tus necesidades.",
+      "Home": "Inicio"
     }  
   }
 }

@@ -181,6 +181,12 @@
       "Alternatives": "Alternativen",
       "title": "Beste {productName} Alternative im Jahr 2024",
       "description": "Entdecken Sie die besten Alternativen zu {productName}. Vergleichen Sie Funktionen und Preise, um die beste Wahl für Ihre Bedürfnisse zu treffen."
-    }
+    },
+    "categories": {
+      "Categories": "Kategorien & Anwendungsfälle",
+      "title": "Die neuesten KI-Tool-Kategorien & Anwendungsfälle Liste im Jahr 2024",
+      "description": "Erkunden Sie KI-Tools, die sowohl nach Kategorie als auch nach Anwendungsfall kategorisiert sind. Egal, ob Sie KI-Produkte erforschen oder nach spezifischen Tools suchen, Sie finden gut organisierte und umfassende Zusammenfassungen, die Ihren Bedürfnissen entsprechen.",
+      "Home": "Startseite"
   }
+}
 }

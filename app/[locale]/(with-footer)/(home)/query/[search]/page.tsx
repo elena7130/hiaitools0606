@@ -49,14 +49,14 @@ export default async function Page({ params }: { params: { search?: string } }) 
 
   const mappedDataList: WebNavigationListRow[] | null = dataList
     ? dataList.map((item: any) => ({
-        id: String(item.id),
-        title: item.title,
-        url: item.url,
-        imageUrl: item.image_url || null,
-        thumbnailUrl: item.thumbnail_url || null,
-        content: item.content,
-        name: item.name,
-      }))
+      id: String(item.id),
+      title: item.title,
+      url: item.url,
+      imageUrl: item.image_url || null,
+      thumbnailUrl: item.thumbnail_url || null,
+      content: item.content,
+      name: item.name,
+    }))
     : null;
 
   return (

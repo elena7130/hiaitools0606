@@ -43,6 +43,7 @@ export default async function Page() {
     { name: 'ai-tools-directory', icon: '⭐' },
     { name: 'ai-characters', icon: '💋' },
     { name: 'ai-tattoo-generator', icon: '⚙️' },
+    { name: 'ai-meme-generator', icon: '🐶' },
     // 可以在这里添加更多用例
   ];
 
@@ -84,7 +85,7 @@ export default async function Page() {
         </div>
 
         {/* AI Categories 部分 */}
-        <div className='mb-10 mt-5'>
+        <div className='mb-5 mt-5'>
           <div className='flex items-center'>
             <h3 className='text-xl font-bold text-black'>AI Categories:</h3>
             <div className='ml-4 flex flex-wrap gap-2'>
@@ -108,7 +109,7 @@ export default async function Page() {
           </div>
         </div>
 
-        <div className='mb-10 mt-2'>
+        <div className='mb-10 mt-1'>
           <div className='flex items-center'>
             <h3 className='text-xl font-bold text-black'>AI Use Cases:</h3>
             <div className='ml-4 flex flex-wrap gap-2 '>

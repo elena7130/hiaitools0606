@@ -25,14 +25,30 @@ export async function generateMetadata({
     namespace: 'Metadata.home',
   });
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL as string;
+  const pathname = `/s/${encodeURI(search || '')}`;
+
+  const alternates = {
+    canonical: `${baseUrl}${locale === 'en' ? '' : `/${locale}`}${pathname}`,
+    languages: {
+      en: `${baseUrl}/en${pathname}`,
+      pt: `${baseUrl}/pt${pathname}`,
+      de: `${baseUrl}/de${pathname}`,
+      es: `${baseUrl}/es${pathname}`,
+      fr: `${baseUrl}/fr${pathname}`,
+      ja: `${baseUrl}/ja${pathname}`,
+      ru: `${baseUrl}/ru${pathname}`,
+      'zh-CN': `${baseUrl}/zh-CN${pathname}`,
+      'zh-TW': `${baseUrl}/zh-TW${pathname}`,
+    },
+  };
+
   return {
     title: search ? `Tools For: ${decodeURI(search)}` : t('title'),
     description: t('description'),
     keywords: t('keywords'),
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
-    alternates: {
-      canonical: './',
-    },
+    metadataBase: new URL(baseUrl),
+    alternates,
   };
 }
 
@@ -49,14 +65,14 @@ export default async function Page({ params }: { params: { search?: string } }) 
 
   const mappedDataList: WebNavigationListRow[] | null = dataList
     ? dataList.map((item: any) => ({
-      id: String(item.id),
-      title: item.title,
-      url: item.url,
-      imageUrl: item.image_url || null,
-      thumbnailUrl: item.thumbnail_url || null,
-      content: item.content,
-      name: item.name,
-    }))
+        id: String(item.id),
+        title: item.title,
+        url: item.url,
+        imageUrl: item.image_url || null,
+        thumbnailUrl: item.thumbnail_url || null,
+        content: item.content,
+        name: item.name,
+      }))
     : null;
 
   return (

@@ -91,6 +91,27 @@ async function getDynamicPaths(): Promise<SitemapEntry[]> {
     );
   }
 
+  // 添加 usecase 页面的路径
+  const { data: usecaseData, error: usecaseError } = await supabase.from('usecase').select('name');
+
+  if (!usecaseError && usecaseData) {
+    paths.push(
+      ...usecaseData.map((usecase: { name: string }) => ({
+        url: `usecase/${escapeXml(usecase.name)}`,
+        lastModified: new Date(),
+        changeFrequency: 'daily' as 'daily',
+        priority: 0.7,
+      })),
+    );
+  }
+
+  // 添加 categories 页面的路径
+  paths.push({
+    url: 'categories',
+    lastModified: new Date(),
+    changeFrequency: 'daily',
+    priority: 0.8,
+  });
   return paths;
 }
 

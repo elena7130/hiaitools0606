@@ -22,11 +22,24 @@ export async function generateMetadata({
   }
   const title = t('title', { productName: data.name });
   const description = t('description', { productName: data.name });
+  const pathname = `/alternatives/${productName}`;
 
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
     alternates: {
-      canonical: './',
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/en${pathname}`,
+      languages: {
+        en: `${process.env.NEXT_PUBLIC_SITE_URL}/en${pathname}`,
+        pt: `${process.env.NEXT_PUBLIC_SITE_URL}/pt${pathname}`,
+        de: `${process.env.NEXT_PUBLIC_SITE_URL}/de${pathname}`,
+        es: `${process.env.NEXT_PUBLIC_SITE_URL}/es${pathname}`,
+        fr: `${process.env.NEXT_PUBLIC_SITE_URL}/fr${pathname}`,
+        ja: `${process.env.NEXT_PUBLIC_SITE_URL}/ja${pathname}`,
+        ru: `${process.env.NEXT_PUBLIC_SITE_URL}/ru${pathname}`,
+        'zh-CN': `${process.env.NEXT_PUBLIC_SITE_URL}/zh-CN${pathname}`,
+        'zh-TW': `${process.env.NEXT_PUBLIC_SITE_URL}/zh-TW${pathname}`,
+        // 添加其他语言版本
+      },
     },
     title,
     description,

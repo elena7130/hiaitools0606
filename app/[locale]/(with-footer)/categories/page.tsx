@@ -14,14 +14,28 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 
   const title = t('title');
   const description = t('description');
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL as string;
+  const pathname = '/categories';
+  const alternates = {
+    canonical: `${baseUrl}${locale === 'en' ? '' : `/${locale}`}${pathname}`,
+    languages: {
+      en: `${baseUrl}/en${pathname}`,
+      pt: `${baseUrl}/pt${pathname}`,
+      de: `${baseUrl}/de${pathname}`,
+      es: `${baseUrl}/es${pathname}`,
+      fr: `${baseUrl}/fr${pathname}`,
+      ja: `${baseUrl}/ja${pathname}`,
+      ru: `${baseUrl}/ru${pathname}`,
+      'zh-CN': `${baseUrl}/zh-CN${pathname}`,
+      'zh-TW': `${baseUrl}/zh-TW${pathname}`,
+    },
+  };
 
   return {
     title,
     description,
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
-    alternates: {
-      canonical: './',
-    },
+    metadataBase: new URL(baseUrl),
+    alternates,
   };
 }
 

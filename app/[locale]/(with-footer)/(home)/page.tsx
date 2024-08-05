@@ -53,7 +53,7 @@ export default async function Page() {
 
   const aiUseCases = [
     { name: 'ai-baby-generator', icon: '👶' },
-    { name: 'ai-book-writing', icon: '📕' },
+    { name: 'ai-book-writer', icon: '📕' },
     { name: 'ai-tools-directory', icon: '⭐' },
     { name: 'ai-characters', icon: '💋' },
     { name: 'ai-tattoo-generator', icon: '⚙️' },

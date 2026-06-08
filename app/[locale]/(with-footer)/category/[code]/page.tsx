@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import type { Metadata } from 'next';
-import Head from 'next/head';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/db/supabase/client';
 
@@ -28,7 +27,11 @@ interface SupabaseQueryResult<T> {
 // 创建 Supabase 客户端实例
 const supabase = createClient();
 
-export async function generateMetadata({ params }: { params: { code: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { code: string; locale: string };
+}): Promise<Metadata> {
   const result: SupabaseQueryResult<Category> = await supabase
     .from('navigation_category')
     .select('title, description, name')
@@ -45,12 +48,42 @@ export async function generateMetadata({ params }: { params: { code: string } })
     notFound();
   }
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL as string;
+  const locale = params.locale ?? 'en';
+  const pathname = `/category/${params.code}`;
+  const title = `Best ${data.title} AI Tools in 2024`;
+  const description = data.description || `Explore the best ${data.title} AI tools. Find, compare and discover top-rated AI tools for ${data.title}.`;
+
   return {
-    title: `Best ${data.title} AI tools in 2024`,
-    description: data.description || 'Default description',
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
+    title,
+    description,
+    metadataBase: new URL(siteUrl),
     alternates: {
-      canonical: './',
+      canonical: `${siteUrl}${locale === 'en' ? '' : `/${locale}`}${pathname}`,
+      languages: {
+        'x-default': `${siteUrl}${pathname}`,
+        en: `${siteUrl}/en${pathname}`,
+        pt: `${siteUrl}/pt${pathname}`,
+        de: `${siteUrl}/de${pathname}`,
+        es: `${siteUrl}/es${pathname}`,
+        fr: `${siteUrl}/fr${pathname}`,
+        ja: `${siteUrl}/ja${pathname}`,
+        ru: `${siteUrl}/ru${pathname}`,
+        'zh-CN': `${siteUrl}/zh-CN${pathname}`,
+        'zh-TW': `${siteUrl}/zh-TW${pathname}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${siteUrl}${locale === 'en' ? '' : `/${locale}`}${pathname}`,
+      siteName: 'Hi AI Tools',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
     },
   };
 }
@@ -88,10 +121,6 @@ export default async function Page({ params }: { params: { code: string } }) {
 
   return (
     <div className='container mx-auto px-4 py-8'>
-      <Head>
-        <title>{`Best ${categoryData.title} AI tools in 2024`}</title>
-        <meta name='description' content={categoryData.description} />
-      </Head>
       <header className='mb-8 text-center'>
         <h1 className='mb-2 text-4xl font-bold'>Best {categoryData.title} AI tools in 2024</h1>
         <p className='text-lg text-gray-600'>{categoryData.description}</p>

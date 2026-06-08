@@ -31,20 +31,58 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     },
   };
 
+  const title = t('title');
+  const description = t('description');
+  const pageUrl = `${baseUrl}${locale === 'en' ? '' : `/${locale}`}/`;
+
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
-    title: t('title'),
-    description: t('description'),
+    title,
+    description,
     keywords: t('keywords'),
-    alternates,
+    alternates: {
+      ...alternates,
+      languages: {
+        'x-default': `${baseUrl}/`,
+        ...alternates.languages,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: pageUrl,
+      siteName: 'Hi AI Tools',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
   };
 }
 
 export const revalidate = RevalidateOneHour;
 
-export default async function Page() {
+export default async function Page({ params: { locale } }: { params: { locale: string } }) {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL as string;
   const supabase = createClient();
   const t = await getTranslations('Home');
+
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Hi AI Tools',
+    url: baseUrl,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${baseUrl}${locale === 'en' ? '' : `/${locale}`}/query/{search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
 
   const [{ data: categoryList }, { data: navigationList }] = await Promise.all([
     supabase.from('navigation_category').select(),
@@ -89,6 +127,7 @@ export default async function Page() {
 
   return (
     <div className='relative w-full'>
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
       <div className='relative mx-auto w-full max-w-pc flex-1 px-3 lg:px-0'>
         <div className='my-5 flex flex-col text-center lg:mx-auto lg:my-10 lg:gap-1'>
           <h1 className='text-2xl font-bold text-black lg:text-5xl'>{t('title')}</h1>

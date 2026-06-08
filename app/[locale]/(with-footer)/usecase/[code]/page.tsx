@@ -8,7 +8,6 @@ import { getTranslations } from 'next-intl/server';
 import { WebNavigationListRow } from '@/lib/data'; // 确保路径和类型定义正确
 import ExploreBreadcrumb from '@/components/explore/ExploreBreadcrumb'; // 确保路径和扩展名正确
 
-import SeoScript from '@/components/seo/SeoScript'; // 确保路径正确
 import WebNavCardList from '@/components/webNav/WebNavCardList';
 
 export const revalidate = 21600;
@@ -114,7 +113,6 @@ export default async function Page({ params: { locale, code } }: { params: { loc
 
   return (
     <div className='relative w-full bg-white'>
-      <SeoScript />
       <div className='container px-4 py-6'>
         <ExploreBreadcrumb linkList={linkList} />
       </div>

@@ -3,7 +3,6 @@ import { createClient } from '@/db/supabase/client';
 import { getTranslations } from 'next-intl/server';
 
 import ExploreBreadcrumb from '@/components/explore/ExploreBreadcrumb';
-import SeoScript from '@/components/seo/SeoScript';
 
 const supabase = createClient();
 
@@ -74,7 +73,6 @@ export default async function Page({ params: { locale } }: { params: { locale: s
 
   return (
     <div className='relative w-full bg-white'>
-      <SeoScript />
       <div className='container px-4 py-6'>
         <ExploreBreadcrumb linkList={linkList} />
       </div>

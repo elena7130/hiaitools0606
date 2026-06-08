@@ -2,10 +2,14 @@
 
 import Script from 'next/script';
 
+const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+
 export default function SeoScript() {
+  if (!GA_ID) return null;
+
   return (
     <>
-      <Script async src='https://www.googletagmanager.com/gtag/js?id=G-06CEX6LCV8' />
+      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
       <Script
         id='gtag-init'
         strategy='afterInteractive'
@@ -14,7 +18,7 @@ export default function SeoScript() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-06CEX6LCV8');
+            gtag('config', '${GA_ID}');
           `,
         }}
       />

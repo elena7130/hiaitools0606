@@ -7,7 +7,6 @@ import { getTranslations } from 'next-intl/server';
 import { Separator } from '@/components/ui/separator';
 import BaseImage from '@/components/image/BaseImage';
 import MarkdownProse from '@/components/MarkdownProse';
-import SeoScript from '@/components/seo/SeoScript'; // 确保路径正确
 import SimilarProducts from '@/components/SimilarProduct';
 
 export async function generateMetadata({
@@ -31,6 +30,7 @@ export async function generateMetadata({
   const alternates = {
     canonical: `${baseUrl}${locale === 'en' ? '' : `/${locale}`}${pathname}`,
     languages: {
+      'x-default': `${baseUrl}${pathname}`,
       en: `${baseUrl}/en${pathname}`,
       pt: `${baseUrl}/pt${pathname}`,
       de: `${baseUrl}/de${pathname}`,
@@ -43,11 +43,29 @@ export async function generateMetadata({
     },
   };
 
+  const title = `${data[0].title} | ${t('titleSubfix')}`;
+  const description = data[0].content || t('defaultDescription');
+  const ogImage = data[0].thumbnail_url || data[0].image_url;
+
   return {
     metadataBase: new URL(baseUrl),
     alternates,
-    title: `${data[0].title} | ${t('titleSubfix')}`,
-    description: data[0].content,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${baseUrl}${locale === 'en' ? '' : `/${locale}`}${pathname}`,
+      siteName: 'Hi AI Tools',
+      type: 'website',
+      ...(ogImage && { images: [{ url: ogImage, width: 1200, height: 630, alt: data[0].title }] }),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      ...(ogImage && { images: [ogImage] }),
+    },
   };
 }
 
@@ -60,12 +78,27 @@ export default async function Page({ params: { websiteName } }: { params: { webs
   }
   const data = dataList[0];
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: data.title,
+    description: data.content,
+    url: data.url,
+    applicationCategory: 'AIApplication',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    ...(data.thumbnail_url && { image: data.thumbnail_url }),
+  };
+
   return (
     <div className='w-full'>
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className='flex flex-col px-6 py-5 lg:h-[323px] lg:flex-row lg:justify-between lg:px-0 lg:py-10'>
         <div className='flex flex-col items-center lg:items-start'>
-          <SeoScript />
-          <div className='space-y-1 text-balance lg:space-y-3'>
+              <div className='space-y-1 text-balance lg:space-y-3'>
             <h1 className='text-2xl lg:text-5xl'>{data.title}</h1>
             <h2 className='text-xs lg:text-sm'>{data.content}</h2>
           </div>

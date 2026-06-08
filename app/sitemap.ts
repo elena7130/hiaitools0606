@@ -38,13 +38,13 @@ async function getDynamicPaths(): Promise<SitemapEntry[]> {
   const paths: SitemapEntry[] = [];
   const supabase = createClient();
 
-  const { data: productData, error: productError } = await supabase.from('web_navigation').select('name');
+  const { data: productData, error: productError } = await supabase.from('web_navigation').select('name, updated_at');
   if (!productError && productData) {
     paths.push(
-      ...productData.map((product: { name: string }) => ({
+      ...productData.map((product: { name: string; updated_at?: string }) => ({
         url: `ai/${escapeXml(product.name)}`,
-        lastModified: new Date(),
-        changeFrequency: 'daily' as 'daily',
+        lastModified: product.updated_at ? new Date(product.updated_at) : new Date(),
+        changeFrequency: 'monthly' as 'monthly',
         priority: 0.7,
       })),
     );
@@ -56,8 +56,8 @@ async function getDynamicPaths(): Promise<SitemapEntry[]> {
       ...alternativeData.map((alternative: { name: string }) => ({
         url: `alternatives/${escapeXml(alternative.name)}`,
         lastModified: new Date(),
-        changeFrequency: 'daily' as 'daily',
-        priority: 0.7,
+        changeFrequency: 'monthly' as 'monthly',
+        priority: 0.6,
       })),
     );
   }
@@ -68,8 +68,8 @@ async function getDynamicPaths(): Promise<SitemapEntry[]> {
       ...categoryData.map((category: { name: string }) => ({
         url: `category/${escapeXml(category.name)}`,
         lastModified: new Date(),
-        changeFrequency: 'daily' as 'daily',
-        priority: 0.7,
+        changeFrequency: 'weekly' as 'weekly',
+        priority: 0.8,
       })),
     );
   }
@@ -85,8 +85,8 @@ async function getDynamicPaths(): Promise<SitemapEntry[]> {
         .map((item) => ({
           url: `s/${escapeXml(item.keyword!)}`,
           lastModified: new Date(),
-          changeFrequency: 'daily' as 'daily',
-          priority: 0.7,
+          changeFrequency: 'monthly' as 'monthly',
+          priority: 0.5,
         })),
     );
   }
@@ -99,7 +99,7 @@ async function getDynamicPaths(): Promise<SitemapEntry[]> {
       ...usecaseData.map((usecase: { name: string }) => ({
         url: `usecase/${escapeXml(usecase.name)}`,
         lastModified: new Date(),
-        changeFrequency: 'daily' as 'daily',
+        changeFrequency: 'weekly' as 'weekly',
         priority: 0.7,
       })),
     );

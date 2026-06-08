@@ -6,7 +6,6 @@ import { getTranslations } from 'next-intl/server';
 import { WebNavigationListRow } from '@/lib/data'; // 确保路径和类型定义正确
 import ExploreBreadcrumb from '@/components/explore/ExploreBreadcrumb'; // 确保路径和扩展名正确
 
-import SeoScript from '@/components/seo/SeoScript'; // 确保路径正确
 import WebNavCardRectangularList from '@/components/webNav/WebNavCardRectangularList';
 
 export async function generateMetadata({
@@ -23,26 +22,39 @@ export async function generateMetadata({
   const title = t('title', { productName: data.name });
   const description = t('description', { productName: data.name });
   const pathname = `/alternatives/${productName}`;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL as string;
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
+    metadataBase: new URL(siteUrl),
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/en${pathname}`,
+      canonical: `${siteUrl}${locale === 'en' ? '' : `/${locale}`}${pathname}`,
       languages: {
-        en: `${process.env.NEXT_PUBLIC_SITE_URL}/en${pathname}`,
-        pt: `${process.env.NEXT_PUBLIC_SITE_URL}/pt${pathname}`,
-        de: `${process.env.NEXT_PUBLIC_SITE_URL}/de${pathname}`,
-        es: `${process.env.NEXT_PUBLIC_SITE_URL}/es${pathname}`,
-        fr: `${process.env.NEXT_PUBLIC_SITE_URL}/fr${pathname}`,
-        ja: `${process.env.NEXT_PUBLIC_SITE_URL}/ja${pathname}`,
-        ru: `${process.env.NEXT_PUBLIC_SITE_URL}/ru${pathname}`,
-        'zh-CN': `${process.env.NEXT_PUBLIC_SITE_URL}/zh-CN${pathname}`,
-        'zh-TW': `${process.env.NEXT_PUBLIC_SITE_URL}/zh-TW${pathname}`,
-        // 添加其他语言版本
+        'x-default': `${siteUrl}${pathname}`,
+        en: `${siteUrl}/en${pathname}`,
+        pt: `${siteUrl}/pt${pathname}`,
+        de: `${siteUrl}/de${pathname}`,
+        es: `${siteUrl}/es${pathname}`,
+        fr: `${siteUrl}/fr${pathname}`,
+        ja: `${siteUrl}/ja${pathname}`,
+        ru: `${siteUrl}/ru${pathname}`,
+        'zh-CN': `${siteUrl}/zh-CN${pathname}`,
+        'zh-TW': `${siteUrl}/zh-TW${pathname}`,
       },
     },
     title,
     description,
+    openGraph: {
+      title,
+      description,
+      url: `${siteUrl}${locale === 'en' ? '' : `/${locale}`}${pathname}`,
+      siteName: 'Hi AI Tools',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
   };
 }
 
@@ -87,7 +99,6 @@ export default async function Page({
   ];
   return (
     <div className='relative w-full bg-white'>
-      <SeoScript />
       <div className='container mx-auto px-4 py-6'>
         <ExploreBreadcrumb linkList={linkList} />
       </div>

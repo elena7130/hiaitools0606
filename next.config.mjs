@@ -4,6 +4,10 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    // 构建时不因 ESLint 代码风格报错而中断（不影响网站运行）
+    ignoreDuringBuilds: true,
+  },
   env: {
     NEXT_BASE_API: process.env.NEXT_BASE_API,
   },

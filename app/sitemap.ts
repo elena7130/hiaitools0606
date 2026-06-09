@@ -38,12 +38,12 @@ async function getDynamicPaths(): Promise<SitemapEntry[]> {
   const paths: SitemapEntry[] = [];
   const supabase = createClient();
 
-  const { data: productData, error: productError } = await supabase.from('web_navigation').select('name, updated_at');
+  const { data: productData, error: productError } = await supabase.from('web_navigation').select('name');
   if (!productError && productData) {
     paths.push(
-      ...productData.map((product: { name: string; updated_at?: string }) => ({
+      ...productData.map((product: { name: string }) => ({
         url: `ai/${escapeXml(product.name)}`,
-        lastModified: product.updated_at ? new Date(product.updated_at) : new Date(),
+        lastModified: new Date(),
         changeFrequency: 'monthly' as 'monthly',
         priority: 0.7,
       })),

@@ -9,7 +9,7 @@ export default function SeoScript() {
 
   return (
     <>
-      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+      <Script async strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
       <Script
         id='gtag-init'
         strategy='afterInteractive'

@@ -1,101 +1,74 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
-import PropTypes from 'prop-types';
 
 import { CONTACT_US_EMAIL } from '@/lib/env';
 
-interface InfoLinkProps {
-  href: string;
-  title: string;
-  target?: string;
-  type?: string;
-}
+const NAV_GROUPS = [
+  {
+    title: 'Explore',
+    links: [
+      { label: 'Careers', href: '/usecase/ai-job-search' },
+      { label: 'Side Hustles', href: '/usecase/ai-side-hustle' },
+      { label: 'Workflows', href: '/explore' },
+      { label: 'Toolkits', href: '/categories' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'Submit a Tool', href: '/submit' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Terms of Service', href: '/terms-of-service' },
+    ],
+  },
+];
 
-function InfoLink({ href, title, target, type }: InfoLinkProps): JSX.Element {
+export default function Footer() {
   return (
-    <Link
-      href={href}
-      title={title}
-      className='whitespace-nowrap text-xs text-gray-900 hover:opacity-70 lg:text-sm'
-      target={target}
-      type={type}
-    >
-      {title}
-    </Link>
-  );
-}
-InfoLink.propTypes = {
-  href: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  target: PropTypes.string,
-  type: PropTypes.string,
-};
+    <footer className='w-full border-t border-gray-100 bg-white'>
+      <div className='mx-auto max-w-pc px-5 py-12 lg:px-0'>
+        <div className='flex flex-col gap-10 lg:flex-row lg:justify-between'>
+          {/* Brand */}
+          <div className='flex flex-col gap-3'>
+            <span className='text-2xl font-bold tracking-tight text-[#0F766E]'>HIAI</span>
+            <p className='max-w-[220px] text-sm text-gray-400'>AI Career &amp; Income Platform</p>
+            {CONTACT_US_EMAIL && (
+              <a
+                href={`mailto:${CONTACT_US_EMAIL}`}
+                className='text-xs text-gray-400 hover:text-gray-600'
+              >
+                {CONTACT_US_EMAIL}
+              </a>
+            )}
+          </div>
 
-function Footer(): JSX.Element {
-  const t = useTranslations('Footer');
-
-  const SupportLinks = [
-    {
-      title: t('AI Coloring Pages'),
-      href: 'https://dragon-coloringpages.com',
-    },
-  ];
-
-  const INFO_LIST = [
-    {
-      title: t('privacy'),
-      href: '/privacy-policy',
-    },
-    {
-      title: t('termsConditions'),
-      href: '/terms-of-service',
-    },
-  ];
-
-  return (
-    <footer className='w-full bg-gray-200'>
-      <div className='mx-auto flex min-h-[150px] max-w-pc flex-col items-center justify-between p-10 pb-5 lg:h-[180px] lg:flex-row lg:px-0 lg:pb-10'>
-        <div className='flex items-center lg:flex-row'>
-          <Image src='/app/favicon.png' alt='Logo' width={100} height={100} />
-          <div className='flex flex-col items-center lg:items-start'>
-            <h1 className='text-xl font-bold text-gray-900 lg:h-8 lg:text-[32px]'>{t('title')}</h1>
-            <h2 className='text-xs text-gray-700'>{t('subTitle')}</h2>
+          {/* Nav groups */}
+          <div className='flex gap-16'>
+            {NAV_GROUPS.map((group) => (
+              <div key={group.title} className='flex flex-col gap-3'>
+                <h3 className='text-xs font-semibold uppercase tracking-wider text-gray-400'>
+                  {group.title}
+                </h3>
+                <ul className='flex flex-col gap-2'>
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className='text-sm text-gray-500 hover:text-gray-900'
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
-        <div className='mt-5 flex flex-col items-center gap-y-5 lg:mt-0 lg:flex-row lg:items-stretch lg:gap-x-10'>
-          <div className='flex w-full flex-col gap-2'>
-            <h2 className='font-bold text-gray-900'>{t('support')}</h2>
-            {SupportLinks.map((item) => (
-              <a
-                href={item.href}
-                key={item.href}
-                target='_blank'
-                rel='noreferrer'
-                className='text-xs text-gray-900 hover:opacity-70 lg:text-base'
-                title={item.title}
-              >
-                {item.title}
-              </a>
-            ))}
-          </div>
-          <div className='grid grid-cols-2 gap-x-10 gap-y-5 lg:grid-cols-1 lg:gap-3'>
-            {INFO_LIST.map((item) => (
-              <InfoLink key={item.href} href={item.href} title={item.title} />
-            ))}
-            <a
-              href={`mailto:${CONTACT_US_EMAIL}`}
-              className='whitespace-nowrap text-xs text-gray-900 hover:opacity-70 lg:text-base'
-              title={t('contactUs')}
-              type='email'
-            >
-              {t('contactUs')}
-            </a>
-          </div>
+
+        <div className='mt-10 border-t border-gray-100 pt-6 text-center text-xs text-gray-400'>
+          © {new Date().getFullYear()} HIAI · AI Career &amp; Income Platform
         </div>
       </div>
     </footer>
   );
 }
-
-export default Footer;

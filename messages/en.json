@@ -3,11 +3,13 @@
     "loading": "loading..."
   },
   "Navigation": {
-    "title": "Hi AI tools Tools",
-    "discover": "Discover AI product",
-    "submit": "Submit",
-    "newtools": "New Tools",
-    "startup": "Startup",
+    "title": "HIAI",
+    "careers": "Careers",
+    "sideHustles": "Side Hustles",
+    "workflows": "Workflows",
+    "toolkits": "Toolkits",
+    "resources": "Resources",
+    "newsletter": "Newsletter",
     "menu": "menu"
   },
   "Footer": {
@@ -119,14 +121,13 @@
     "goHome": "go home"
   },
   "Home": {
-    "title": "Hi AI tools - Discover the best AI Tools in 2024",
-    "subTitle": "Get your favorite AI tools in Hi AI.The latest AI tools website has all tools manually tested to help you find the best ones. 🚀",
+    "title": "AI Tools to Find Jobs, Build Side Income & Grow Your Career",
+    "subTitle": "Discover the best AI tools to land your next job, launch a side hustle, and boost your productivity. Curated and updated daily.",
     "just-landed": "Just Landed",
-    "exploreMore": "Get More AI Tools",
-    "featured":"Featured",
+    "exploreMore": "Explore More AI Tools",
+    "featured": "Featured",
     "search": "Search",
     "result": "Search Results"
-
   },
   "Submit": {
     "title": "Submit your AI Tool",
@@ -162,9 +163,9 @@
   },
   "Metadata": {
     "home": {
-      "title": "Discover the Best and latest AI Tools in 2024 | Hi AI Tools",
-      "description": "Hi AI Tools collects AI products from around the world and categorizes them, providing product comparisons to help you quickly find the AI tools that suit you, saving you time. Whether you're looking to boost productivity, simplify tasks, or explore new technology, Hi AI Tools has what you need. Quickly find your favorite AI tools and save valuable time with Hi AI Tools. Update daily.",
-      "keywords": "Hi AI Tools"
+      "title": "Best AI Tools for Jobs, Side Hustles & Career Growth | Hi AI Tools",
+      "description": "Find the best AI tools to land your dream job, grow your income, and build a side hustle. Hi AI Tools curates and reviews top AI tools for resume writing, job search, freelancing, and personal productivity. Updated daily.",
+      "keywords": "AI tools for job search, AI side hustle tools, AI resume builder, AI productivity tools, make money with AI"
     },
     "ai": {
       "titleSubfix": "Hi AI  Tools",

@@ -1,4 +1,5 @@
 export type WebNavigationListRow = {
+  categoryName?: string;
   content: string;
   id: string;
   imageUrl: string | null;

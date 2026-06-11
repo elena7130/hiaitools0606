@@ -1,139 +1,112 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { createClient } from '@/db/supabase/client';
+import { ArrowRight } from 'lucide-react';
 
-import { InfoPageSize, RevalidateOneHour } from '@/lib/constants';
+import { categoryMeta, getGuidesByCategory } from '@/lib/guides';
+import type { GuideCategory } from '@/lib/guides';
+import BasePagination from '@/components/page/BasePagination';
 
-import Content from './Content';
+const PAGE_SIZE = 4;
 
-export const revalidate = RevalidateOneHour * 6;
+export async function generateMetadata({ params }: { params: { code: string; locale: string } }): Promise<Metadata> {
+  const meta = categoryMeta[params.code as GuideCategory];
 
-type Category = {
-  title: string;
-  description: string;
-  name: string;
-};
-
-// 定义查询返回的类型
-interface SupabaseQueryResult<T> {
-  data: T | null;
-  error: {
-    message: string;
-  } | null;
-}
-
-// 创建 Supabase 客户端实例
-const supabase = createClient();
-
-export async function generateMetadata({
-  params,
-}: {
-  params: { code: string; locale: string };
-}): Promise<Metadata> {
-  const result: SupabaseQueryResult<Category> = await supabase
-    .from('navigation_category')
-    .select('title, description, name')
-    .eq('name', params.code)
-    .single();
-
-  const { data, error } = result;
-
-  if (error) {
-    notFound();
-  }
-
-  if (!data || !data.title) {
+  if (!meta) {
     notFound();
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL as string;
   const locale = params.locale ?? 'en';
   const pathname = `/category/${params.code}`;
-  const title = `Best ${data.title} AI Tools in 2024`;
-  const description = data.description || `Explore the best ${data.title} AI tools. Find, compare and discover top-rated AI tools for ${data.title}.`;
 
   return {
-    title,
-    description,
+    title: `${meta.title} AI Guides | HIAI`,
+    description: meta.description,
     metadataBase: new URL(siteUrl),
     alternates: {
       canonical: `${siteUrl}${locale === 'en' ? '' : `/${locale}`}${pathname}`,
-      languages: {
-        'x-default': `${siteUrl}${pathname}`,
-        en: `${siteUrl}/en${pathname}`,
-        pt: `${siteUrl}/pt${pathname}`,
-        de: `${siteUrl}/de${pathname}`,
-        es: `${siteUrl}/es${pathname}`,
-        fr: `${siteUrl}/fr${pathname}`,
-        ja: `${siteUrl}/ja${pathname}`,
-        ru: `${siteUrl}/ru${pathname}`,
-        'zh-CN': `${siteUrl}/zh-CN${pathname}`,
-        'zh-TW': `${siteUrl}/zh-TW${pathname}`,
-      },
-    },
-    openGraph: {
-      title,
-      description,
-      url: `${siteUrl}${locale === 'en' ? '' : `/${locale}`}${pathname}`,
-      siteName: 'Hi AI Tools',
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
     },
   };
 }
 
-export default async function Page({ params }: { params: { code: string } }) {
-  const result: SupabaseQueryResult<Category> = await supabase
-    .from('navigation_category')
-    .select('title, description, name')
-    .eq('name', params.code)
-    .single();
+export default function Page({ params }: { params: { code: string } }) {
+  const category = params.code as GuideCategory;
+  const meta = categoryMeta[category];
 
-  const { data: categoryData, error: categoryError } = result;
-
-  if (categoryError) {
+  if (!meta) {
     notFound();
   }
 
-  if (!categoryData || !categoryData.title || !categoryData.description || !categoryData.name) {
-    notFound();
-  }
-
-  const {
-    data: navigationList,
-    count,
-    error: navigationError,
-  } = await supabase
-    .from('web_navigation')
-    .select('*', { count: 'exact' })
-    .eq('category_name', params.code)
-    .range(0, InfoPageSize - 1);
-
-  if (navigationError || !navigationList) {
-    notFound();
-  }
+  const categoryGuides = getGuidesByCategory(category);
+  const visibleGuides = categoryGuides.slice(0, PAGE_SIZE);
+  const tabs = [
+    { label: 'Latest', href: `/category/${category}` },
+    { label: 'Popular', href: `/category/${category}` },
+    { label: 'All', href: `/category/${category}` },
+  ];
 
   return (
-    <div className='container mx-auto px-4 py-8'>
-      <header className='mb-8 text-center'>
-        <h1 className='mb-2 text-4xl font-bold'>Best {categoryData.title} AI tools in 2024</h1>
-        <p className='text-lg text-gray-600'>{categoryData.description}</p>
-      </header>
-      <main>
-        <Content
-          navigationList={navigationList}
-          currentPage={1}
-          total={count || 0}
-          pageSize={InfoPageSize}
-          route={`/category/${params.code}`}
-        />
-      </main>
+    <div className='w-full bg-white text-gray-950'>
+      <div className='mx-auto max-w-[980px] px-5 py-14 lg:px-0'>
+        <header className='mb-10'>
+          <h1 className='text-5xl font-bold text-gray-950'>{meta.title}</h1>
+          <p className='mt-5 max-w-xl text-base leading-7 text-gray-700'>{meta.description}</p>
+        </header>
+
+        <div className='mb-10 flex gap-8 border-b border-gray-200'>
+          {tabs.map((tab, index) => (
+            <Link
+              key={tab.label}
+              href={tab.href}
+              className={`border-b-2 pb-4 text-sm font-semibold ${
+                index === 0
+                  ? 'border-[#0F766E] text-[#0F766E]'
+                  : 'border-transparent text-gray-700 hover:text-[#0F766E]'
+              }`}
+            >
+              {tab.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className='divide-y divide-gray-200'>
+          {visibleGuides.map((guide) => (
+            <Link
+              key={guide.slug}
+              href={`/guides/${guide.slug}`}
+              className='grid gap-7 py-8 transition-colors hover:text-[#0F766E] sm:grid-cols-[220px_1fr]'
+            >
+              <div className='h-36 rounded-[4px] bg-gradient-to-br from-gray-100 to-gray-200' />
+              <div>
+                <h2 className='text-xl font-bold leading-snug text-gray-950'>{guide.title}</h2>
+                <p className='mt-3 text-sm leading-6 text-gray-700'>{guide.description}</p>
+                <p className='mt-5 text-sm text-gray-600'>
+                  {guide.date} <span className='px-2'>.</span> {guide.readTime}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className='mt-10 flex justify-center'>
+          <BasePagination
+            currentPage={1}
+            total={Math.max(categoryGuides.length, 1)}
+            pageSize={PAGE_SIZE}
+            route={`/category/${category}`}
+          />
+        </div>
+
+        <div className='mt-10 flex justify-center'>
+          <Link
+            href='/explore'
+            className='inline-flex items-center gap-2 text-sm font-semibold text-[#0F766E] hover:text-[#0B5F58]'
+          >
+            Browse AI tools <ArrowRight className='size-4' />
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

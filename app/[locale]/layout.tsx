@@ -27,7 +27,7 @@ export default function RootLayout({
       <head>
         <link rel='icon' sizes='16x16' href='/app/11.png' type='image/x-icon' />
       </head>
-      <body className='relative mx-auto flex min-h-screen flex-col bg-gray-100 text-gray-900'>
+      <body className='relative mx-auto flex min-h-screen flex-col bg-white text-gray-900'>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Toaster
             position='top-center'

@@ -1,9 +1,8 @@
 export const NAV_LINKS = [
-  { code: 'careers', href: '/usecase/ai-job-search' },
-  { code: 'sideHustles', href: '/usecase/ai-side-hustle' },
-  { code: 'workflows', href: '/explore' },
-  { code: 'toolkits', href: '/categories' },
-  { code: 'resources', href: '/submit' },
+  { code: 'guides', href: '/guides' },
+  { code: 'workflows', href: '/playbooks' },
+  { code: 'resources', href: '/tools' },
+  { code: 'about', href: '/about' },
 ];
 
 export const RevalidateOneHour = 3600;

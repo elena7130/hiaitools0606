@@ -8,7 +8,13 @@
     "submit": "Enviar",
     "newtools": "Novas Ferramentas",
     "startup": "Inicialização",
-    "menu": "menu"
+    "menu": "menu",
+    "guides": "Guias",
+    "workflows": "Fluxos de trabalho",
+    "resources": "Recursos",
+    "about": "Sobre",
+    "subscribe": "Inscrever-se",
+    "search": "Pesquisar"
   },
   "Footer": {
     "title": "Tap4 Diretório de Ferramentas de IA",
@@ -188,6 +194,32 @@
       "title": "As Últimas Categorias de Ferramentas de IA e Lista de Casos de Uso em 2024",
       "description": "Explore ferramentas de IA categorizadas tanto por categoria quanto por caso de uso. Se você está pesquisando produtos de IA ou procurando ferramentas específicas, encontrará resumos bem organizados e abrangentes para atender às suas necessidades.",
       "Home": "Início"
-    }  
+    }
+  },
+  "GuidesPage": {
+    "title": "Todos os Guias",
+    "description": "Guias práticos de IA para crescimento profissional, automação, aprendizado e ferramentas.",
+    "tabAll": "Todos",
+    "browseByTopic": "Navegar guias por tema"
+  },
+  "PlaybooksPage": {
+    "title": "Playbooks",
+    "description": "Frameworks passo a passo que mostram exatamente como usar IA para alcançar um objetivo.",
+    "readPlaybook": "Ler Playbook",
+    "comingSoon": "Mais em breve",
+    "comingSoonDesc": "Novos playbooks sobre aprendizado, automação e produtividade estão em andamento."
+  },
+  "ToolsPage": {
+    "title": "Ferramentas de IA",
+    "description": "Ferramentas selecionadas para trabalhar de forma mais inteligente, aprender mais rápido e alcançar mais.",
+    "tabAll": "Todas",
+    "tabCareer": "Carreira",
+    "tabLearning": "Aprendizado",
+    "tabAutomation": "Automação",
+    "tabProductivity": "Produtividade",
+    "visit": "Visitar",
+    "submitCta": "Conhece uma boa ferramenta?",
+    "submitCtaDesc": "Sugira uma ferramenta que ajude profissionais a usar melhor a IA.",
+    "submitButton": "Enviar ferramenta"
   }
 }

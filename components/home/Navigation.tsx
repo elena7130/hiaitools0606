@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Search } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { NAV_LINKS } from '@/lib/constants';
@@ -17,31 +18,27 @@ export default function Navigation() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const NavLinks = NAV_LINKS.map((item) => ({
-    ...item,
-    label: t(`${item.code}`),
-  }));
+  const navLinks = NAV_LINKS.map((item) => ({ ...item, label: t(item.code) }));
 
   return (
     <>
-      <header className='sticky left-0 top-0 z-50 flex h-[64px] border-b border-gray-100 bg-white/90 px-5 backdrop-blur-lg lg:px-0'>
+      <header className='sticky left-0 top-0 z-50 flex h-[86px] border-b border-gray-200 bg-white/95 px-5 backdrop-blur-lg lg:px-0'>
         <nav className='mx-auto flex max-w-pc flex-1 items-center'>
           {/* Logo */}
           <Link href='/' title='HIAI' className='flex items-center gap-2'>
-            <span className='text-xl font-bold tracking-tight text-[#0F766E]'>HIAI</span>
+            <span className='text-3xl font-bold tracking-tight text-gray-950'>HIAI</span>
           </Link>
 
           {/* Desktop nav */}
-          <ul className='ml-10 hidden h-full flex-1 items-center gap-x-8 lg:flex'>
-            {NavLinks.map((item) => (
+          <ul className='ml-20 hidden h-full flex-1 items-center justify-center gap-x-12 lg:flex'>
+            {navLinks.map((item) => (
               <li key={item.code}>
                 <Link
                   href={item.href}
                   title={item.label}
                   className={cn(
-                    'text-sm font-medium text-gray-500 transition-colors hover:text-gray-900',
-                    (pathname === item.href || (pathname.includes(item.href) && item.href !== '/')) &&
-                      'text-gray-900',
+                    'text-base font-medium text-gray-950 transition-colors hover:text-[#0F766E]',
+                    (pathname === item.href || (pathname.includes(item.href) && item.href !== '/')) && 'text-[#0F766E]',
                   )}
                 >
                   {item.label}
@@ -51,15 +48,22 @@ export default function Navigation() {
           </ul>
 
           {/* Right side */}
-          <div className='ml-auto flex items-center gap-x-3'>
+          <div className='ml-auto flex items-center gap-x-5'>
+            <Link
+              href='/query/ai'
+              title={t('search')}
+              className='hidden text-gray-950 transition-colors hover:text-[#0F766E] lg:inline-flex'
+            >
+              <Search className='size-6' strokeWidth={2.2} />
+            </Link>
             <div className='hidden lg:block'>
               <LocaleSwitcher />
             </div>
             <Link
               href='#newsletter'
-              className='hidden rounded-2xl bg-[#0F766E] px-4 py-2 text-sm font-semibold text-white transition-transform hover:scale-[1.03] lg:block'
+              className='hidden rounded-[8px] bg-[#0F766E] px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-[#0B5F58] lg:block'
             >
-              {t('newsletter')}
+              {t('subscribe')}
             </Link>
             {/* Mobile */}
             <div className='flex items-center gap-x-3 lg:hidden'>
@@ -69,7 +73,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
-      <NavigationDrawer open={open} setOpen={setOpen} />
+      <NavigationDrawer open={open} setOpen={setOpen} navLinks={navLinks} />
     </>
   );
 }

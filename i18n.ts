@@ -7,46 +7,16 @@ export const languages = [
     lang: 'en',
     label: 'English',
   },
-  {
-    code: 'ja-JP',
-    lang: 'ja',
-    label: '日本語',
-  },
-  {
-    code: 'de-DE',
-    lang: 'de',
-    label: 'Deutsch',
-  },
-  {
-    code: 'es-ES',
-    lang: 'es',
-    label: 'Español',
-  },
-  {
-    code: 'fr-FR',
-    lang: 'fr',
-    label: 'Français',
-  },
-  {
-    code: 'pt-BR',
-    lang: 'pt',
-    label: 'Português',
-  },
-  {
-    code: 'ru-RU',
-    lang: 'ru',
-    label: 'Русский',
-  },
-  {
-    code: 'zh-CN',
-    lang: 'zh-CN',
-    label: '简体中文',
-  },
-  {
-    code: 'zh-TW',
-    lang: 'zh-TW',
-    label: '繁體中文',
-  },
+  // Other languages are ready but temporarily disabled.
+  // To re-enable, uncomment the entries below and restart the dev server.
+  // { code: 'ja-JP', lang: 'ja', label: '日本語' },
+  // { code: 'de-DE', lang: 'de', label: 'Deutsch' },
+  // { code: 'es-ES', lang: 'es', label: 'Español' },
+  // { code: 'fr-FR', lang: 'fr', label: 'Français' },
+  // { code: 'pt-BR', lang: 'pt', label: 'Português' },
+  // { code: 'ru-RU', lang: 'ru', label: 'Русский' },
+  // { code: 'zh-CN', lang: 'zh-CN', label: '简体中文' },
+  // { code: 'zh-TW', lang: 'zh-TW', label: '繁體中文' },
 ];
 
 export const locales = languages.map((lang) => lang.lang);

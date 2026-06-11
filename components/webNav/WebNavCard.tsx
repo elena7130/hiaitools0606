@@ -1,35 +1,49 @@
 import Link from 'next/link';
-import { SquareArrowOutUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 import { WebNavigationListRow } from '@/lib/data';
+import BaseImage from '@/components/image/BaseImage';
 
-import BaseImage from '../image/BaseImage';
-
-export default function WebNavCard({ name, thumbnailUrl, title, url, content }: WebNavigationListRow) {
-  // console.log('Props received by WebNavCard:', { name, thumbnailUrl, title, url, content });
-
+export default function WebNavCard({ categoryName, name, thumbnailUrl, title, url, content }: WebNavigationListRow) {
   return (
-    <div className='flex flex-col gap-3 rounded-[12px] bg-white p-4 shadow-md lg:p-6'>
-      <Link href={`/ai/${name}`} title={title}>
+    <div className='grid items-center gap-5 border-b border-gray-200 py-5 sm:grid-cols-[52px_1fr_auto_auto]'>
+      <Link
+        href={`/ai/${name}`}
+        title={title}
+        className='relative flex size-12 overflow-hidden rounded-[6px] border border-gray-200 bg-gray-100'
+      >
         <BaseImage
-          width={320}
-          height={180}
-          src={thumbnailUrl || '/path/to/default/image.jpg'}
+          width={48}
+          height={48}
+          src={thumbnailUrl || '/app/favicon.png'}
           alt={title}
           title={title}
-          className='aspect-[278/156] rounded-[8px] bg-gray-200 hover:opacity-70'
+          className='size-12 object-cover'
         />
       </Link>
-      <div className='flex items-center justify-between'>
-        <a href={url} title={title} target='_blank' rel='noreferrer nofollow' className='hover:opacity-70'>
-          <h3 className='line-clamp-1 flex-1 text-sm font-bold text-gray-900 lg:text-base'>{title}</h3>
-        </a>
-        <a href={url} title={title} target='_blank' rel='noreferrer nofollow' className='hover:opacity-70'>
-          <SquareArrowOutUpRight className='size-5 text-gray-900' />
-          <span className='sr-only'>{title}</span>
-        </a>
+
+      <div>
+        <Link href={`/ai/${name}`} title={title} className='text-base font-bold text-gray-950 hover:text-[#0F766E]'>
+          {title}
+        </Link>
+        <p className='mt-1 line-clamp-2 max-w-2xl text-sm leading-6 text-gray-700'>{content}</p>
       </div>
-      <p className='line-clamp-5 text-xs text-gray-900 lg:text-sm'>{content}</p>
+
+      {categoryName ? (
+        <span className='w-fit rounded-[4px] bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700'>
+          {categoryName}
+        </span>
+      ) : null}
+
+      <a
+        href={url}
+        title={title}
+        target='_blank'
+        rel='noreferrer nofollow'
+        className='inline-flex items-center gap-2 text-sm font-semibold text-[#0F766E] hover:text-[#0B5F58]'
+      >
+        Visit Website <ArrowRight className='size-4' />
+      </a>
     </div>
   );
 }

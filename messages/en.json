@@ -4,13 +4,13 @@
   },
   "Navigation": {
     "title": "HIAI",
-    "careers": "Careers",
-    "sideHustles": "Side Hustles",
+    "guides": "Guides",
     "workflows": "Workflows",
-    "toolkits": "Toolkits",
     "resources": "Resources",
-    "newsletter": "Newsletter",
-    "menu": "menu"
+    "about": "About",
+    "subscribe": "Subscribe",
+    "search": "Search",
+    "menu": "Menu"
   },
   "Footer": {
     "title": "Hi AI Tools",
@@ -201,5 +201,31 @@
       "description": "Explore AI tools categorized by both category and use case. Whether you're researching AI products or looking for specific tools, you'll find well-organized and comprehensive summaries to suit your needs.",
       "Home": "Home"
     }
+  },
+  "GuidesPage": {
+    "title": "All Guides",
+    "description": "Practical AI guides for career growth, automation, learning, and professional tools.",
+    "tabAll": "All",
+    "browseByTopic": "Browse guides by topic"
+  },
+  "PlaybooksPage": {
+    "title": "Playbooks",
+    "description": "Step-by-step frameworks that show you exactly how to use AI to reach a goal — from job search to career growth.",
+    "readPlaybook": "Read Playbook",
+    "comingSoon": "More coming soon",
+    "comingSoonDesc": "New playbooks on AI learning, automation, and productivity are in progress."
+  },
+  "ToolsPage": {
+    "title": "AI Tools",
+    "description": "Curated tools to help you work smarter, learn faster, and achieve more.",
+    "tabAll": "All",
+    "tabCareer": "Career",
+    "tabLearning": "Learning",
+    "tabAutomation": "Automation",
+    "tabProductivity": "Productivity",
+    "visit": "Visit",
+    "submitCta": "Know a great tool?",
+    "submitCtaDesc": "Suggest a tool that helps professionals use AI better.",
+    "submitButton": "Submit a Tool"
   }
 }

@@ -1,6 +1,24 @@
 export type Database = {
   public: {
     Tables: {
+      subscribers: {
+        Row: {
+          id: number;
+          email: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: never;
+          email: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: never;
+          email?: string;
+          created_at?: string;
+        };
+        Relationships: [];
+      };
       navigation_category: {
         Row: {
           create_by: number;
@@ -33,31 +51,31 @@ export type Database = {
       };
       submit: {
         Row: {
-          created_at: string;
-          email: string | null;
           id: number;
-          is_feature: number | null;
+          created_at: string;
           name: string | null;
-          status: number | null;
           url: string | null;
+          tag: string | null;
+          description: string | null;
+          email: string | null;
         };
         Insert: {
+          id?: never;
           created_at?: string;
-          email?: string | null;
-          id?: number;
-          is_feature?: number | null;
           name?: string | null;
-          status?: number | null;
           url?: string | null;
+          tag?: string | null;
+          description?: string | null;
+          email?: string | null;
         };
         Update: {
+          id?: never;
           created_at?: string;
-          email?: string | null;
-          id?: number;
-          is_feature?: number | null;
           name?: string | null;
-          status?: number | null;
           url?: string | null;
+          tag?: string | null;
+          description?: string | null;
+          email?: string | null;
         };
         Relationships: [];
       };

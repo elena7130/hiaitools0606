@@ -8,7 +8,13 @@
     "submit": "提出する",
     "newtools": "新しいツール",
     "startup": "スタートアップ",
-    "menu": "メニュー"
+    "menu": "メニュー",
+    "guides": "ガイド",
+    "workflows": "ワークフロー",
+    "resources": "リソース",
+    "about": "について",
+    "subscribe": "購読",
+    "search": "検索"
   },
   "Footer": {
     "title": "Hi AI tools ツールディレクトリ",
@@ -180,6 +186,32 @@
       "title": "2024年の最新のAIツールカテゴリーとユースケースリスト",
       "description": "カテゴリーとユースケース別に分類されたAIツールを探索してください。AI製品を調査している場合でも、特定のツールを探している場合でも、ニーズに合わせた整理された包括的な要約が見つかります。",
       "Home": "ホーム"
-    }  
+    }
+  },
+  "GuidesPage": {
+    "title": "すべてのガイド",
+    "description": "キャリア成長、自動化、学習、プロ向けツールに関する実践的なAIガイド。",
+    "tabAll": "すべて",
+    "browseByTopic": "トピック別にガイドを閲覧"
+  },
+  "PlaybooksPage": {
+    "title": "プレイブック",
+    "description": "求職からキャリア成長まで、AIを使って目標を達成する方法をステップバイステップで解説。",
+    "readPlaybook": "プレイブックを読む",
+    "comingSoon": "近日公開予定",
+    "comingSoonDesc": "AI学習、自動化、生産性に関する新しいプレイブックを準備中です。"
+  },
+  "ToolsPage": {
+    "title": "AIツール",
+    "description": "より賢く働き、より速く学び、より多くを達成するための厳選ツール。",
+    "tabAll": "すべて",
+    "tabCareer": "キャリア",
+    "tabLearning": "学習",
+    "tabAutomation": "自動化",
+    "tabProductivity": "生産性",
+    "visit": "訪問",
+    "submitCta": "良いツールをご存知ですか？",
+    "submitCtaDesc": "AIをより活用するためのツールをご提案ください。",
+    "submitButton": "ツールを提案"
   }
 }

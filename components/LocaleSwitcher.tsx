@@ -16,6 +16,8 @@ export default function LocaleSwitcher() {
 
   const [localeVal, setLocaleVal] = useState(currentLocale);
 
+  if (languages.length <= 1) return null;
+
   const onValueChange = (newLocale: string) => {
     setLocaleVal(newLocale);
     router.replace(pathname, { locale: newLocale });

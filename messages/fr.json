@@ -8,7 +8,13 @@
     "submit": "Soumettre",
     "newtools": "Nouveaux outils",
     "startup": "Startups",
-    "menu": "Menu"
+    "menu": "Menu",
+    "guides": "Guides",
+    "workflows": "Workflows",
+    "resources": "Ressources",
+    "about": "À propos",
+    "subscribe": "S'abonner",
+    "search": "Rechercher"
   },
   "Footer": {
     "title": "Répertoire des outils AI de Tap4",
@@ -188,5 +194,31 @@
       "description": "Explorez les outils d'IA classés par catégorie et par cas d'utilisation. Que vous recherchiez des produits IA ou des outils spécifiques, vous trouverez des résumés bien organisés et complets pour répondre à vos besoins.",
       "Home": "Accueil"
     }
+  },
+  "GuidesPage": {
+    "title": "Tous les guides",
+    "description": "Guides pratiques sur l'IA pour la croissance professionnelle, l'automatisation, l'apprentissage et les outils.",
+    "tabAll": "Tous",
+    "browseByTopic": "Parcourir les guides par thème"
+  },
+  "PlaybooksPage": {
+    "title": "Playbooks",
+    "description": "Des cadres étape par étape qui montrent exactement comment utiliser l'IA pour atteindre un objectif.",
+    "readPlaybook": "Lire le Playbook",
+    "comingSoon": "Plus à venir",
+    "comingSoonDesc": "De nouveaux playbooks sur l'apprentissage, l'automatisation et la productivité sont en cours."
+  },
+  "ToolsPage": {
+    "title": "Outils IA",
+    "description": "Outils sélectionnés pour travailler plus intelligemment, apprendre plus vite et accomplir plus.",
+    "tabAll": "Tous",
+    "tabCareer": "Carrière",
+    "tabLearning": "Apprentissage",
+    "tabAutomation": "Automatisation",
+    "tabProductivity": "Productivité",
+    "visit": "Visiter",
+    "submitCta": "Vous connaissez un bon outil ?",
+    "submitCtaDesc": "Suggérez un outil qui aide les professionnels à mieux utiliser l'IA.",
+    "submitButton": "Soumettre un outil"
   }
 }

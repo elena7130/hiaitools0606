@@ -8,7 +8,13 @@
     "submit": "提交",
     "newtools": "新工具",
     "startup": "创业公司",
-    "menu": "菜单"
+    "menu": "菜单",
+    "guides": "指南",
+    "workflows": "工作流",
+    "resources": "资源",
+    "about": "关于",
+    "subscribe": "订阅",
+    "search": "搜索"
   },
   "Footer": {
     "title": "Hi AI tools工具箱",
@@ -193,5 +199,31 @@
       "description": "探索按类别和使用案例分类的AI工具。无论您是在研究AI产品还是寻找特定工具，您都可以找到井然有序且全面的摘要，以满足您的需求。",
       "Home": "首页"
     }
+  },
+  "GuidesPage": {
+    "title": "所有指南",
+    "description": "涵盖职业成长、自动化、学习与工具的实用 AI 指南。",
+    "tabAll": "全部",
+    "browseByTopic": "按主题浏览指南"
+  },
+  "PlaybooksPage": {
+    "title": "方法论",
+    "description": "逐步框架，教您如何使用 AI 达成目标——从求职到职业成长。",
+    "readPlaybook": "阅读方法论",
+    "comingSoon": "更多即将推出",
+    "comingSoonDesc": "AI 学习、自动化和生产力的新方法论正在制作中。"
+  },
+  "ToolsPage": {
+    "title": "AI 工具",
+    "description": "精选工具，帮助您更聪明地工作、更快地学习、取得更多成就。",
+    "tabAll": "全部",
+    "tabCareer": "职业",
+    "tabLearning": "学习",
+    "tabAutomation": "自动化",
+    "tabProductivity": "生产力",
+    "visit": "访问",
+    "submitCta": "知道好工具吗？",
+    "submitCtaDesc": "推荐一个帮助职场人士更好使用 AI 的工具。",
+    "submitButton": "推荐工具"
   }
 }

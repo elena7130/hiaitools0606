@@ -1,117 +1,90 @@
+import Link from 'next/link';
 import { createClient } from '@/db/supabase/client';
+import type { WebNavigation } from '@/db/supabase/types';
+import { ArrowRight } from 'lucide-react';
 
-import { WebNavigationListRow } from '@/lib/data'; // 确保导入正确路径
-import SearchForm from '@/components/home/SearchForm';
+import { WebNavigationListRow } from '@/lib/data';
 import BasePagination from '@/components/page/BasePagination';
 import WebNavCardList from '@/components/webNav/WebNavCardList';
 
 const WEB_PAGE_SIZE = 20;
-const maxItemsToShow = 10;
+const tabs = ['All', 'Career', 'Learning', 'Automation', 'Productivity'];
 
 export default async function ExploreList({ pageNum }: { pageNum?: string }) {
   const supabase = createClient();
   const currentPage = pageNum ? Number(pageNum) : 1;
-
-  // start and end
   const start = (currentPage - 1) * WEB_PAGE_SIZE;
   const end = start + WEB_PAGE_SIZE - 1;
 
-  const [{ data: categoryList }, { data: navigationList, count }] = await Promise.all([
-    supabase.from('navigation_category').select(),
-    supabase
-      .from('web_navigation')
-      .select('*', { count: 'exact' })
-      .order('collection_time', { ascending: false })
-      .range(start, end),
-  ]);
+  const { data: navigationList, count } = await supabase
+    .from('web_navigation')
+    .select('*', { count: 'exact' })
+    .order('collection_time', { ascending: false })
+    .range(start, end);
 
-  const aiUseCases = [
-    { name: 'ai-baby-generator', icon: '👶' },
-    { name: 'ai-book-writing', icon: '📕' },
-    { name: 'ai-tools-directory', icon: '⭐' },
-    { name: 'ai-characters', icon: '💋' },
-    { name: 'ai-tattoo-generator', icon: '⚙️' },
-    { name: 'ai-meme-generator', icon: '🐶' },
-    // 可以在这里添加更多用例
-  ];
-
-  // 将 navigationList 映射为 WebNavigationListRow 类型
-  const mappedNavigationList: WebNavigationListRow[] | null = navigationList
-    ? navigationList.map((item: any) => ({
-      id: String(item.id),
-      title: item.title,
-      url: item.url,
-      imageUrl: item.image_url || null,
-      thumbnailUrl: item.thumbnail_url || null,
-      content: item.content,
-      name: item.name,
-    }))
-    : null;
+  const mappedNavigationList: WebNavigationListRow[] = navigationList
+    ? navigationList.map((item: WebNavigation) => ({
+        categoryName: item.category_name,
+        id: String(item.id),
+        title: item.title,
+        url: item.url,
+        imageUrl: item.image_url || null,
+        thumbnailUrl: item.thumbnail_url || null,
+        content: item.content,
+        name: item.name,
+      }))
+    : [];
 
   return (
-    <>
-      <div className='flex w-full items-center justify-center'>
-        <SearchForm />
-      </div>
+    <div className='w-full bg-white text-gray-950'>
+      <div className='mx-auto max-w-[980px] px-5 py-14 lg:px-0'>
+        <header className='mb-8'>
+          <h1 className='text-4xl font-bold text-gray-950 lg:text-5xl'>AI Tools</h1>
+          <p className='mt-4 max-w-xl text-base leading-7 text-gray-700'>
+            Curated tools to help you work smarter, learn faster, and achieve more.
+          </p>
+        </header>
 
-      {/* 将两个部分的父容器设置为 flex 和 flex-col 以便垂直对齐 */}
-      <div className='mb-10 mt-5 flex flex-col gap-4'>
-        {/* AI Categories 部分 */}
-        <div className='flex items-center'>
-          <h3 className='text-xl font-bold text-black'>AI Categories:</h3>
-          <div className='ml-4 flex flex-wrap gap-2'>
-            {categoryList &&
-              categoryList
-                .map((item: any) => ({
-                  id: String(item.id),
-                  name: item.name,
-                  href: `/category/${item.name}`,
-                }))
-                .slice(0, maxItemsToShow)
-                .map((category) => (
-                  <a key={category.id} href={category.href} className='tag rounded-lg bg-[#dddee0] p-2 shadow-lg'>
-                    {category.name}
-                  </a>
-                ))}
-            {categoryList && categoryList.length > maxItemsToShow && (
-              <a href='/categories' className='tag rounded-lg bg-[#dddee0] p-2 shadow-lg'>
-                》
-              </a>
-            )}
-          </div>
+        <div className='mb-6 flex flex-wrap gap-8 border-b border-gray-200'>
+          {tabs.map((tab, index) => (
+            <button
+              key={tab}
+              type='button'
+              className={`border-b-2 pb-4 text-sm font-semibold ${
+                index === 0
+                  ? 'border-[#0F766E] text-[#0F766E]'
+                  : 'border-transparent text-gray-700 hover:text-[#0F766E]'
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
         </div>
 
-        {/* AI Use Cases 部分 */}
-        <div className='mt-3 flex items-center'>
-          <h3 className='text-xl font-bold text-black'>AI Use Cases:</h3>
-          <div className='ml-4 flex flex-wrap gap-2'>
-            {aiUseCases.slice(0, maxItemsToShow).map((useCase) => (
-              <a
-                key={useCase.name}
-                href={`/usecase/${useCase.name}`}
-                className='tag rounded-lg bg-[#dddee0] p-2 shadow-lg'
-              >
-                {useCase.icon} {useCase.name}
-              </a>
-            ))}
-            {maxItemsToShow && (
-              <a href='/categories' className='tag rounded-lg bg-[#dddee0] p-2 shadow-lg'>
-                》
-              </a>
-            )}
+        <WebNavCardList dataList={mappedNavigationList} />
+
+        <BasePagination
+          currentPage={currentPage}
+          pageSize={WEB_PAGE_SIZE}
+          total={count || 0}
+          route='/explore'
+          subRoute='/page'
+          className='my-8 justify-center'
+        />
+
+        <div className='mt-8 flex items-center justify-between rounded-[8px] border border-gray-200 bg-gray-50 px-6 py-5'>
+          <div>
+            <h2 className='text-sm font-bold text-gray-950'>Know a great tool?</h2>
+            <p className='mt-1 text-sm text-gray-700'>Suggest a tool that helps professionals use AI better.</p>
           </div>
+          <Link
+            href='/submit'
+            className='inline-flex h-10 items-center gap-2 rounded-[8px] bg-[#0F766E] px-4 text-sm font-semibold text-white hover:bg-[#0B5F58]'
+          >
+            Submit a Tool <ArrowRight className='size-4' />
+          </Link>
         </div>
       </div>
-
-      <WebNavCardList dataList={mappedNavigationList!} />
-      <BasePagination
-        currentPage={currentPage}
-        pageSize={WEB_PAGE_SIZE}
-        total={count!}
-        route='/explore'
-        subRoute='/page'
-        className='my-5 lg:my-10'
-      />
-    </>
+    </div>
   );
 }

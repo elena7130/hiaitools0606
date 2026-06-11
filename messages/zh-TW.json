@@ -3,12 +3,14 @@
     "loading": "加載中..."
   },
   "Navigation": {
-    "title": "Hi AI tools工具目錄",
-    "discover": "發現AI",
-    "submit": "提交",
-    "newtools": "新工具",
-    "startup": "創業公司",
-    "menu": "菜單"
+    "title": "HIAI",
+    "guides": "指南",
+    "workflows": "工作流程",
+    "resources": "資源",
+    "about": "關於",
+    "subscribe": "訂閱",
+    "search": "搜尋",
+    "menu": "選單"
   },
   "Footer": {
     "title": "Hi AI tools工具目錄",
@@ -190,5 +192,31 @@
       "description": "探索按類別和使用案例分類的AI工具。無論您是在研究AI產品還是尋找特定工具，您都可以找到井然有序且全面的摘要，以滿足您的需求。",
       "Home": "首頁"
     }
+  },
+  "GuidesPage": {
+    "title": "所有指南",
+    "description": "涵蓋職涯成長、自動化、學習與工具的實用 AI 指南。",
+    "tabAll": "全部",
+    "browseByTopic": "按主題瀏覽指南"
+  },
+  "PlaybooksPage": {
+    "title": "方法論",
+    "description": "逐步框架，教您如何使用 AI 達成目標——從求職到職涯成長。",
+    "readPlaybook": "閱讀方法論",
+    "comingSoon": "更多即將推出",
+    "comingSoonDesc": "AI 學習、自動化和生產力的新方法論正在製作中。"
+  },
+  "ToolsPage": {
+    "title": "AI 工具",
+    "description": "精選工具，幫助您更聰明地工作、更快地學習、取得更多成就。",
+    "tabAll": "全部",
+    "tabCareer": "職涯",
+    "tabLearning": "學習",
+    "tabAutomation": "自動化",
+    "tabProductivity": "生產力",
+    "visit": "訪問",
+    "submitCta": "知道好工具嗎？",
+    "submitCtaDesc": "推薦一個幫助職場人士更好使用 AI 的工具。",
+    "submitButton": "推薦工具"
   }
 }
